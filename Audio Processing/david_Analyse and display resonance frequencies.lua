@@ -1,21 +1,43 @@
 --@description Analyse and display resonance frequencies
 --@author david
---@version 1.0
+--@version 1.1
 --@changelog
---  Initial script
+--  Modify librairy path scan
 --@about
 --  Import the selected clip and analyse frequencies to find resonances
 --  Some slider to tweak analyse parameters
 
 
 -- GUI REFERENCIES --
-local libPath = reaper.GetExtState("Scythe v3", "libPath")
-if not libPath or libPath == "" then
+local GUIlibPath = reaper.GetExtState("Scythe v3", "libPath")
+if not GUIlibPath or GUIlibPath == "" then
     reaper.MB("Couldn't load the Scythe library. Please install 'Scythe library v3' from ReaPack, then run 'Script: Scythe_Set v3 library path.lua' in your Action List.", "Whoops!", 0)
     return
 end
+loadfile(GUIlibPath .. "scythe.lua")()
 
-loadfile(libPath .. "scythe.lua")()
+-- FFT REFERENCIES --
+
+-- SET
+local info = debug.getinfo(1,'S')
+local scriptPath = info.source:match[[^@?(.*[\\/])[^\\/]-$]]
+
+reaper.SetExtState("DavidTF", "fftPath", scriptPath, true)
+--reaper.MB("FFT's library path is now set to:\n" .. scriptPath, "DavidTF", 0)
+
+-- GET
+local GUIfftPath = reaper.GetExtState("DavidTF", "fftPath")
+if not GUIfftPath or GUIfftPath == "" then
+    reaper.MB("Couldn't load the FFT library !", "Whoops!", 0)
+    return
+end
+
+local function add_to_package_path(subpath)
+    package.path = subpath .. "ressources/?.lua;" .. package.path
+end
+
+add_to_package_path(GUIfftPath)
+
 
 local GUI = require("gui.core")
 
@@ -77,7 +99,7 @@ mainLayer:addElements( GUI.createElements(
       w = btn_W,
       h = btn_H,
       caption = "Import selected item",
-      func = function () Main() end
+      func = function () ImportAudioClip() end
   },
   {
       name = "Selected_Item_Label",
@@ -225,17 +247,6 @@ function CloseWindow()
 end
 
 --------------------------------------------------------------------------------------------------------------------
-
----------------------GET FFT SCRIPT---------------------
-local function get_script_path()
-  local filename = debug.getinfo(1, "S").source:match("^@?(.+)$")
-  return filename:match("^(.*)[\\/](.-)$")
-end
-
-local function add_to_package_path(subpath) package.path = subpath .. "/david_Analyse and display resonance frequencies/?.lua;" .. package.path end
-
-add_to_package_path(get_script_path())
----------------------------------------------------------
 
 ------------------------VARIABLES------------------------
 local luafft = require "luafft"
@@ -454,7 +465,7 @@ function LinearToLogarithmic(value)
 end
 
 
-function Main()
+function ImportAudioClip()
     if reaper.CountSelectedMediaItems(0) > 0 then
     
         selectedItem = (reaper.GetSelectedMediaItem(0,0)) -- Store selected item for all the script
@@ -476,7 +487,7 @@ end
 ---------------------------------------------------------
 
 reaper.atexit(function ()
-    if selectedItem ~= nil then
+    if selectedItem ~= nil and fx_index ~= nil then
         DeletePlugin(selectedItem, fx_index)
     end
 end)
@@ -484,7 +495,6 @@ end)
 
 
 -- MAIN SCRIPT EXECUTION --
-reaper.ClearConsole()
 reaper.PreventUIRefresh(1)
 mainWindow()
 reaper.PreventUIRefresh(-1)
