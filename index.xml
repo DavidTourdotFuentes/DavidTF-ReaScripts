@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="28e72c54b521e95c0138901885ccdbd8dfc0ecc3">
-  <category name="delta_Analyse and display resonance frequencies">
+<index version="1" name="DavidTF ReaScripts" commit="5ba1dffc56e48598df7ded7c365f73a4912cd186">
+  <category name="david_Analyse and display resonance frequencies">
     <reapack name="complex.lua" type="script" desc="provides common tasks with complex numbers">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -11,8 +11,8 @@
 }
 ]]></description>
       </metadata>
-      <version name="0.3.0" time="2024-02-15T13:32:58Z">
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/dc4680c1230780165bdfe98e9f37a4f6e889d352/delta_Analyse%20and%20display%20resonance%20frequencies/complex.lua</source>
+      <version name="0.3.0" time="2024-02-15T13:46:05Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/5ba1dffc56e48598df7ded7c365f73a4912cd186/david_Analyse%20and%20display%20resonance%20frequencies/complex.lua</source>
       </version>
     </reapack>
     <reapack name="luafft.lua" type="script" desc="Provides functions to carry out Fast Fourier Transformations.">
@@ -25,8 +25,8 @@
 }
 ]]></description>
       </metadata>
-      <version name="1.0" time="2024-02-15T13:39:42Z">
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/28e72c54b521e95c0138901885ccdbd8dfc0ecc3/delta_Analyse%20and%20display%20resonance%20frequencies/luafft.lua</source>
+      <version name="1.0" time="2024-02-15T13:46:05Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/5ba1dffc56e48598df7ded7c365f73a4912cd186/david_Analyse%20and%20display%20resonance%20frequencies/luafft.lua</source>
       </version>
     </reapack>
   </category>
