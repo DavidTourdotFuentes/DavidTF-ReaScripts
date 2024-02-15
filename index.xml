@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="536e07763be7abf29a6b48416f4f6f6c8251759a">
+<index version="1" name="DavidTF ReaScripts" commit="cb990e950b9e99c4ccdd037201611c29c0e35d4e">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -17,7 +17,7 @@
       </version>
     </reapack>
   </category>
-  <category name="Audio Processing/delta_Analyse and display resonance frequencies">
+  <category name="Audio Processing/david_Analyse and display resonance frequencies">
     <reapack name="complex.lua" type="script" desc="provides common tasks with complex numbers">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -28,8 +28,8 @@
 }
 ]]></description>
       </metadata>
-      <version name="0.3.0" time="2024-02-15T13:50:15Z">
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/536e07763be7abf29a6b48416f4f6f6c8251759a/Audio%20Processing/delta_Analyse%20and%20display%20resonance%20frequencies/complex.lua</source>
+      <version name="0.3.0" time="2024-02-15T13:53:41Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/cb990e950b9e99c4ccdd037201611c29c0e35d4e/Audio%20Processing/david_Analyse%20and%20display%20resonance%20frequencies/complex.lua</source>
       </version>
     </reapack>
     <reapack name="luafft.lua" type="script" desc="Provides functions to carry out Fast Fourier Transformations.">
@@ -42,8 +42,8 @@
 }
 ]]></description>
       </metadata>
-      <version name="1.0" time="2024-02-15T13:50:15Z">
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/536e07763be7abf29a6b48416f4f6f6c8251759a/Audio%20Processing/delta_Analyse%20and%20display%20resonance%20frequencies/luafft.lua</source>
+      <version name="1.0" time="2024-02-15T13:53:41Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/cb990e950b9e99c4ccdd037201611c29c0e35d4e/Audio%20Processing/david_Analyse%20and%20display%20resonance%20frequencies/luafft.lua</source>
       </version>
     </reapack>
   </category>
