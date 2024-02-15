@@ -1,24 +1,23 @@
+--@description provides common tasks with complex numbers
+--@version 0.3.0
+--@about
 -- complex 0.3.0
 -- Lua 5.1
-
 -- 'complex' provides common tasks with complex numbers
-
 -- function complex.to( arg ); complex( arg )
 -- returns a complex number on success, nil on failure
 -- arg := number or { number,number } or ( "(-)<number>" and/or "(+/-)<number>i" )
 --      e.g. 5; {2,3}; "2", "2+i", "-2i", "2^2*3+1/3i"
 --      note: 'i' is always in the numerator, spaces are not allowed
-
 -- a complex number is defined as carthesic complex number
 -- complex number := { real_part, imaginary_part }
 -- this gives fast access to both parts of the number for calculation
 -- the access is faster than in a hash table
 -- the metatable is just a add on, when it comes to speed, one is faster using a direct function call
-
 -- http://luaforge.net/projects/LuaMatrix
 -- http://lua-users.org/wiki/ComplexNumbers
-
 -- Licensed under the same terms as Lua itself.
+
 
 --/////////////--
 --// complex //--
