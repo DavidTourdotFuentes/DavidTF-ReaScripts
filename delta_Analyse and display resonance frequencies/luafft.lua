@@ -1,3 +1,6 @@
+--@description Provides functions to carry out Fast Fourier Transformations.
+--@version 1.0
+--@about
 --[[
 This package provides functions to carry out Fast Fourier Transformations.
 
@@ -20,7 +23,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
 ]]
 
 complex = require "complex"
