@@ -1,3 +1,12 @@
+--@description Analyse and display resonance frequencies
+--@author david
+--@version 1.0
+--@changelog
+--  Initial script
+--@about
+--  Import the selected clip and analyse frequencies to find resonances
+--  Some slider to tweak analyse parameters
+
 
 -- GUI REFERENCIES --
 local libPath = reaper.GetExtState("Scythe v3", "libPath")
