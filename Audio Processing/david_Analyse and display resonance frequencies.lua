@@ -471,6 +471,10 @@ function ImportAudioClip()
         selectedItem = (reaper.GetSelectedMediaItem(0,0)) -- Store selected item for all the script
         -- Create a signal from media item
         sampleTable, frequency = GetSamples(selectedItem)
+
+        for i=0, (luafft.next_possible_size(#sampleTable) - #sampleTable) - 1 do
+            table.insert(sampleTable, 0)
+        end
         
         -- Carry out fast fourier transformation and store result in "spec"
         spec = luafft.fft(sampleTable, false)
