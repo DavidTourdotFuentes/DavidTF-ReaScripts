@@ -1,8 +1,8 @@
 --@description Analyse and display resonance frequencies
 --@author david
---@version 1.1
+--@version 1.2
 --@changelog
---  Modify librairy path scan
+--  Bugfix : error when import incorrect clip lenght
 --@about
 --  Import the selected clip and analyse frequencies to find resonances
 --  Some slider to tweak analyse parameters
