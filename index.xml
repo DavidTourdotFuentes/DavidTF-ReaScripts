@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="6c538b5dbb82dd469041deb674e41e62a088e34d">
+<index version="1" name="DavidTF ReaScripts" commit="30a153c3fc084e495a1c0c62b5f806c0d87da8b5">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -18,6 +18,10 @@
       <version name="1.1" author="david" time="2024-02-15T14:42:51Z">
         <changelog><![CDATA[Modify librairy path scan]]></changelog>
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/6c538b5dbb82dd469041deb674e41e62a088e34d/Audio%20Processing/david_Analyse%20and%20display%20resonance%20frequencies.lua</source>
+      </version>
+      <version name="1.2" author="david" time="2024-02-16T10:42:09Z">
+        <changelog><![CDATA[Bugfix : error when import incorrect clip lenght]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/30a153c3fc084e495a1c0c62b5f806c0d87da8b5/Audio%20Processing/david_Analyse%20and%20display%20resonance%20frequencies.lua</source>
       </version>
     </reapack>
   </category>
