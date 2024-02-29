@@ -1,3 +1,11 @@
+--@description Add tracks like ProTools
+--@author DavidTF
+--@version 1
+--@about
+--  Setup track number, name and color
+--  Organise on folder
+--  Batch create
+
 -- INITIALISATION --
 local libPath = reaper.GetExtState("Scythe v3", "libPath")
 if not libPath or libPath == "" then
