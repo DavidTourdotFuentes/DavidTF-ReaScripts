@@ -1,5 +1,12 @@
---- THIS SCRIPT NEED ReaWwise https://github.com/Audiokinetic/Reaper-Tools/raw/main/index.xml ---
---reaper.ShowMessageBox('No ReaWwise package found !\nPlease install it with the followed link :\nhttps://github.com/Audiokinetic/Reaper-Tools/raw/main/index.xml', 'Error !',0)
+--@description Toggle Play Wwise event based on trigger marker event
+--@author david
+--@version 1.0
+--@changelog
+--  First version
+--@about
+--  Toggle on to play a wwise event when the readhead passes a marker (marker name = name of the event)
+
+--- THIS SCRIPT NEED ReaWwise package : https://github.com/Audiokinetic/Reaper-Tools/raw/main/index.xml ---
 --- SETTINGS ---
 detectPrecision = 0.02 --> Range of detection between marker (in seconds) default : 0.02 (20ms)
 markerProximityDetector = 2 --> Precision of proximity factor (scale) default : 2 (2 x detectPrecision)
