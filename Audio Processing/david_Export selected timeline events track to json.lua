@@ -10,21 +10,40 @@ itemTable = {}
 renderedObjects = {}
 
 function InitItemTable()
-    timelineTrack = reaper.GetSelectedTrack(0, 0)
-    noteItemCount = reaper.CountTrackMediaItems(timelineTrack)
-    for i=0, noteItemCount - 1 do
-        tempPos, tempName, tempVol = GetItemInfo(reaper.GetTrackMediaItem(timelineTrack, i))
-        AddObject(tempName, tempPos, tempVol)
+    for i=0, reaper.CountSelectedTracks(0) - 1 do
+        currentTrack = reaper.GetSelectedTrack(0, i)
+        noteItemCount = reaper.CountTrackMediaItems(currentTrack)
+        
+        for j = 0, noteItemCount - 1 do
+            currentItem = reaper.GetTrackMediaItem(currentTrack, j)
+            
+            _, note = reaper.GetSetMediaItemInfo_String(currentItem, "P_NOTES", "", false)
+            pos = reaper.GetMediaItemInfo_Value(currentItem, "D_POSITION")
+            vol = reaper.GetMediaItemInfo_Value(currentItem, "D_VOL")
+            
+            if note ~= "" then
+                AddObject(note, pos, vol)
+            end
+        end
     end
     
-    WriteIndExportFile()
+    SortItems(renderedObjects, "position")
+    
+    WriteExportFile()
+end
+
+function SortItems(t,...)
+  local a = {...}
+  table.sort(t, function (u,v)
+    for i in pairs(a) do
+      if u[a[i]] > v[a[i]] then return false end
+      if u[a[i]] < v[a[i]] then return true end
+    end
+  end)
 end
 
 function GetItemInfo(item)
-    _, name = reaper.GetSetMediaItemInfo_String(item, "P_NOTES", "", false)
-    pos = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
-    vol = reaper.GetMediaItemInfo_Value(item, "D_VOL")
-    return pos, name, vol
+    return pos, note, vol
 end
 
 function AddObject(event, position, volume)
@@ -32,20 +51,21 @@ function AddObject(event, position, volume)
     table.insert(renderedObjects, newObject)
 end
 
-function WriteIndExportFile()
+function WriteExportFile()
     -- Conversion de la liste d'objets en format JSON
+    local _, filename = reaper.JS_Dialog_BrowseForSaveFile("Choisir le fichier JSON", "", "export.json", "Fichier JSON (*.json)")
     
     -- Écriture des données JSON dans un fichier
-    local file = io.open("C:\\Users\\david\\Desktop\\export.json", "w")
-    if file then
-        file:write(TableToJson(renderedObjects))
-        file:close()
-        reaper.ShowConsoleMsg("Données JSON écrites dans le fichier.")
-    else
-        reaper.ShowConsoleMsg("Erreur lors de l'ouverture du fichier.")
+    if filename ~= "" then
+        local file = io.open(filename, "w")
+        if file then
+            file:write(TableToJson(renderedObjects))
+            file:close()
+        else
+            reaper.ShowMessageBox("Erreur lors de l'ouverture du fichier", "Error !", 0)
+        end
     end
 end
-
 
 function TableToJson(tbl)
     local function escapeStr(s)
