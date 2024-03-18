@@ -1,3 +1,11 @@
+--@description Exports selected timeline events track to json
+--@author david
+--@version 1.0
+--@changelog
+--  Initial commit
+--@about
+--  Select a timeline track and export all wwise event data to json file
+
 itemTable = {}
 renderedObjects = {}
 
