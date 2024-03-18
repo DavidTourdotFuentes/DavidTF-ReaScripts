@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="f277fef674889e120f02e7078fc424f5c5958dd3">
+<index version="1" name="DavidTF ReaScripts" commit="4cd86c75125d09dcee936629ab317447c68f32bf">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -22,41 +22,6 @@
       <version name="1.2" author="david" time="2024-02-16T10:42:09Z">
         <changelog><![CDATA[Bugfix : error when import incorrect clip lenght]]></changelog>
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/30a153c3fc084e495a1c0c62b5f806c0d87da8b5/Audio%20Processing/david_Analyse%20and%20display%20resonance%20frequencies.lua</source>
-      </version>
-    </reapack>
-    <reapack name="david_Export selected timeline events track to json.lua" type="script" desc="Exports selected timeline events track to json">
-      <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
-{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
-\widowctrl\hyphauto
-
-{\pard \ql \f0 \sa180 \li0 \fi0 Select a timeline track and export all wwise event data to json file\par}
-}
-]]></description>
-      </metadata>
-      <version name="1.0" author="david" time="2024-03-18T12:07:02Z">
-        <changelog><![CDATA[Initial commit]]></changelog>
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/f277fef674889e120f02e7078fc424f5c5958dd3/Audio%20Processing/david_Export%20selected%20timeline%20events%20track%20to%20json.lua</source>
-      </version>
-    </reapack>
-    <reapack name="david_Toggle Play Wwise event based on trigger marker name.lua" type="script" desc="Toggle Play Wwise event based on trigger marker event">
-      <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
-{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
-\widowctrl\hyphauto
-
-{\pard \ql \f0 \sa180 \li0 \fi0 Toggle on to play a wwise event when the readhead passes a marker (marker name = name of the event)\par}
-}
-]]></description>
-      </metadata>
-      <version name="1.0" author="david" time="2024-03-18T07:57:55Z">
-        <changelog><![CDATA[First version]]></changelog>
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/d8f3b460f5820a4dab7552a6f8d59f0c0e319d1e/Audio%20Processing/david_Toggle%20Play%20Wwise%20event%20based%20on%20trigger%20marker%20name.lua</source>
-      </version>
-      <version name="1.1" author="david" time="2024-03-18T12:02:01Z">
-        <changelog><![CDATA[Set script toggle state
-Switch marker events to note item]]></changelog>
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/531d305587ec5b65db803ed135aaafbfc3671950/Audio%20Processing/david_Toggle%20Play%20Wwise%20event%20based%20on%20trigger%20marker%20name.lua</source>
       </version>
     </reapack>
   </category>
@@ -103,6 +68,39 @@ Switch marker events to note item]]></changelog>
       </metadata>
       <version name="1" author="DavidTF" time="2024-02-29T15:12:58Z">
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/4c057b8ca2610adb10ce5f4e727683eb7593caed/Tracks%20Management/david_Add%20tracks%20like%20ProTools.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Waapi">
+    <reapack name="david_Export selected timeline events track to json.lua" type="script" desc="Exports selected timeline events track to json">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Select a timeline track and export all wwise event data to json file\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="david" time="2024-03-18T15:00:42Z">
+        <changelog><![CDATA[Initial commit]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/4cd86c75125d09dcee936629ab317447c68f32bf/Waapi/david_Export%20selected%20timeline%20events%20track%20to%20json.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Toggle Play Wwise event based on trigger marker name.lua" type="script" desc="Toggle Play Wwise event based on trigger marker event">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Toggle on to play a wwise event when the readhead passes a marker (marker name = name of the event)\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2024-03-18T15:00:42Z">
+        <changelog><![CDATA[Set script toggle state
+Switch marker events to note item]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/4cd86c75125d09dcee936629ab317447c68f32bf/Waapi/david_Toggle%20Play%20Wwise%20event%20based%20on%20trigger%20marker%20name.lua</source>
       </version>
     </reapack>
   </category>
