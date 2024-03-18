@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="d8f3b460f5820a4dab7552a6f8d59f0c0e319d1e">
+<index version="1" name="DavidTF ReaScripts" commit="531d305587ec5b65db803ed135aaafbfc3671950">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -37,6 +37,11 @@
       <version name="1.0" author="david" time="2024-03-18T07:57:55Z">
         <changelog><![CDATA[First version]]></changelog>
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/d8f3b460f5820a4dab7552a6f8d59f0c0e319d1e/Audio%20Processing/david_Toggle%20Play%20Wwise%20event%20based%20on%20trigger%20marker%20name.lua</source>
+      </version>
+      <version name="1.1" author="david" time="2024-03-18T12:02:01Z">
+        <changelog><![CDATA[Set script toggle state
+Switch marker events to note item]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/531d305587ec5b65db803ed135aaafbfc3671950/Audio%20Processing/david_Toggle%20Play%20Wwise%20event%20based%20on%20trigger%20marker%20name.lua</source>
       </version>
     </reapack>
   </category>
