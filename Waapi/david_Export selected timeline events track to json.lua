@@ -19,10 +19,10 @@ function InitItemTable()
             
             _, note = reaper.GetSetMediaItemInfo_String(currentItem, "P_NOTES", "", false)
             pos = reaper.GetMediaItemInfo_Value(currentItem, "D_POSITION")
-            vol = reaper.GetMediaItemInfo_Value(currentItem, "D_VOL")
             
             if note ~= "" then
-                AddObject(note, pos, vol)
+                event, vol, pitch = FormatNote(note)
+                AddObject(event, pos, vol, pitch)
             end
         end
     end
@@ -30,6 +30,27 @@ function InitItemTable()
     SortItems(renderedObjects, "position")
     
     WriteExportFile()
+end
+
+function FormatNote(note)
+    local event = ""
+    local volume = 1.0
+    local pitch = 0
+
+    local lines = {}
+    for line in note:gmatch("[^\r\n]+") do
+        table.insert(lines, line)
+    end
+
+    event = lines[1]
+    if lines[2] or lines[2] ~= "" then
+        volume = tonumber(lines[2]) or 1.0
+    end
+    if lines[3] or lines[3] ~= "" then
+        pitch = tonumber(lines[3]) or 0
+    end
+
+    return event, volume, pitch
 end
 
 function SortItems(t,...)
@@ -46,8 +67,8 @@ function GetItemInfo(item)
     return pos, note, vol
 end
 
-function AddObject(event, position, volume)
-    newObject = { event = event, position = position, volume = volume}
+function AddObject(event, position, volume, pitch)
+    newObject = { event = event, position = position, volume = volume, pitch = pitch}
     table.insert(renderedObjects, newObject)
 end
 
