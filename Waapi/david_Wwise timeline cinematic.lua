@@ -1,8 +1,16 @@
 --@description david_Wwise timeline cinematic
 --@author DavidTF
---@version 0.1
---@changelog WIP Initial creation
+--@version 0.2
+--@changelog Added MessageBox if ReaWwise not installed
 --@about Main GUI for cinematic timeline creation
+
+isReaWwisePresent = reaper.file_exists("C:\\Users\\david\\AppData\\Roaming\\REAPER\\UserPlugins\\reaper_reawwise.dll")
+if not isReaWwisePresent then
+    reaper.ShowMessageBox("Reawwise is not installed, please install ReaWwise\n(Github URL copied to clipboard)", "ReaWwise missing", 0)
+    
+    reaper.CF_SetClipboard("https://github.com/Audiokinetic/Reaper-Tools/raw/main/index.xml")
+    return
+end
 
 local path = ({reaper.get_action_context()})[2]:match('^.+[\\//]')
 package.path = path .. "david_Wwise timeline cinematic (system).lua"
