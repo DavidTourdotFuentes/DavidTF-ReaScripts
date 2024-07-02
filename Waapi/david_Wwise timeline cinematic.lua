@@ -1,7 +1,7 @@
 --@description david_Wwise timeline cinematic
 --@author DavidTF
---@version 0.2
---@changelog Added MessageBox if ReaWwise not installed
+--@version 0.3
+--@changelog Bugfix on adding event items
 --@about Main GUI for cinematic timeline creation
 
 isReaWwisePresent = reaper.file_exists("C:\\Users\\david\\AppData\\Roaming\\REAPER\\UserPlugins\\reaper_reawwise.dll")
@@ -262,14 +262,15 @@ function GuiLoop()
     reaper.ImGui_PushFont(ctx, FONT)
     reaper.ImGui_SetConfigVar(ctx, reaper.ImGui_ConfigVar_ViewportsNoDecoration(), 0)
     
-    if preview_mode then
+    if preview_mode then 
         reaper.ImGui_PushStyleColor(ctx, reaper.ImGui_Col_WindowBg(), reaper.ImGui_ColorConvertDouble4ToU32(0.2,0,0,0.95))
     end
     if set_events then
         reaper.ImGui_PushStyleColor(ctx, reaper.ImGui_Col_WindowBg(), reaper.ImGui_ColorConvertDouble4ToU32(0.0,0.15,0,0.95))
-    end
+    end 
+    
     if set_events then
-        if tostring(reaper.JS_Window_GetFocus()) == "userdata: 00000000000107D6" then
+        if reaper.JS_Window_GetTitle(reaper.JS_Window_GetFocus()) == "trackview" then
             mouse_curr = reaper.JS_Mouse_GetState(1)
             if mouse ~= mouse_curr then
                 if mouse_curr == 0 then

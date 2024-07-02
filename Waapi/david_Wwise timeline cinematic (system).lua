@@ -1,7 +1,7 @@
 --@description david_Wwise timeline cinematic (system)
 --@author DavidTF
---@version 0.1
---@changelog WIP Initial creation
+--@version 0.2
+--@changelog Add item color coding based on log message
 --@about Main functions systems for cinematic timeline creation
 
 ----- SETTINGS -----
@@ -18,7 +18,6 @@ silenceSourceID = 0
 detectPrecision = 0.02 --> Range of detection between marker (in seconds) default : 0.02 (20ms)
 markerProximityDetector = 3 --> Precision of proximity factor (scale) default : 2 (2 x detectPrecision)
 debugAlreadyDetectedMarker = true --> Show console message when marker was detected multiple times
-debugWaapiEventState = true --> Show console message when event was triggered
 resetCacheTime = 1 -->  Detection of same marker rate in seconds (looping on the marker or playing transport multiple times) default : 1 sec
 
 itemTable = {}
@@ -84,8 +83,9 @@ function PreviewLoop()
   
     if isPlaying == 1 then
         for i, item in ipairs(itemTable) do
-            curPos = reaper.GetPlayPosition()
             
+            curPos = reaper.GetPlayPosition()
+             
             --markerPos, markerName, markerId = GetMarkerInfo(marker)
             itemPos, itemName, itemVol = GetItemInfo(item)
             
@@ -93,7 +93,17 @@ function PreviewLoop()
                 if (curPos < lastDetectionPos - (detectPrecision * markerProximityDetector)) or (curPos > lastDetectionPos + (detectPrecision * markerProximityDetector)) then
                     lastDetectionPos = curPos
                     output = OnEvent(itemPos, itemName, itemVol)
-                
+                    
+                    --reaper.ShowConsoleMsg("\n"..tostring(reaper.GetMediaItemInfo_Value(item, "I_CUSTOMCOLOR")))
+                    
+                    if output.state == "ERROR" then
+                        reaper.SetMediaItemInfo_Value(item, "I_CUSTOMCOLOR", 23817199.0)
+                    else
+                        reaper.SetMediaItemInfo_Value(item, "I_CUSTOMCOLOR", 0.0)
+                    end
+                    
+                    reaper.UpdateArrange()
+                    
                     -- Reset du cache après un certain temps
                     lastDetectionTime = reaper.time_precise()
                 else
@@ -122,60 +132,36 @@ function OnEvent(itemPos, itemName, itemVol)
     
     if state == "" then
         if makerName ~= "" and itemName ~= "" then
-            WaapiPlayEvent(itemName)
-            
-            if debugWaapiEventState then
-                statusText = itemName
-                output = {state = "INFO", desc = statusText}
-            end
+            output = WaapiPlayEvent(itemName)
+            return output
         end
     end
     if state == "[PLAY]" then
         if result[2] then
             WaapiPlayEvent(result[2])
-            
-            if debugWaapiEventState then
-                statusText = "[PLAY] " .. result[2]
-                output = {state = "INFO", desc = statusText}
-            end
+            return output
         end
     end
     if state == "[STOPALL]" then
         WaapiStopAll()
-        
-        if debugWaapiEventState then
-            statusText = "[STOPALL]"
-            output = {state = "INFO", desc = statusText}
-        end
+        return output
     end
     if state == "[RTPC]" then
         if result[2] and result[3] then
             WaapiSetRTPC(result[2], result[3])
-            
-            if debugWaapiEventState then
-                statusText = "[RTPC] " .. result[2] .. " : " .. result[3]
-                output = {state = "INFO", desc = statusText}
-            end
+            return output
         end
     end
     if state == "[STATE]" then
         if result[2] and result[3] then
             WaapiSetState(result[2], result[3])
-            
-            if debugWaapiEventState then
-                statusText = "[STATE] " .. result[2] .. " : " .. result[3]
-                output = {state = "INFO", desc = statusText}
-            end
+            return output
         end
     end
     if state == "[SWITCH]" then
         if result[2] and result[3] then
             WaapiSetSwitch(result[2], result[3])
-            
-            if debugWaapiEventState then
-                statusText = "[SWITCH] " .. result[2] .. " : " .. result[3]
-                output = {state = "INFO", desc = statusText}
-            end
+            return output
         end
     end
     
@@ -1003,4 +989,3 @@ return
     Stop = Stop,
     CleanWwiseSession = CleanWwiseSession
 }
-
