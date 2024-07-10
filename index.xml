@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="fbc46d4ee99a5360555b2c424082c2b4db7d1646">
+<index version="1" name="DavidTF ReaScripts" commit="d49c26c26c80edf6a726d894cfc75eec12343175">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -112,6 +112,10 @@
       <version name="0.3" author="DavidTF" time="2024-07-02T13:55:58Z">
         <changelog><![CDATA[Bugfix on adding event items]]></changelog>
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/fbc46d4ee99a5360555b2c424082c2b4db7d1646/Waapi/david_Wwise%20timeline%20cinematic.lua</source>
+      </version>
+      <version name="0.4" author="DavidTF" time="2024-07-10T15:38:34Z">
+        <changelog><![CDATA[Detection of reawwise on appdata folder]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/d49c26c26c80edf6a726d894cfc75eec12343175/Waapi/david_Wwise%20timeline%20cinematic.lua</source>
       </version>
     </reapack>
   </category>
