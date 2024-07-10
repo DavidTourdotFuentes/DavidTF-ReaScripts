@@ -1,14 +1,40 @@
 --@description david_Wwise timeline cinematic
 --@author DavidTF
---@version 0.3
---@changelog Bugfix on adding event items
+--@version 0.4
+--@changelog Detection of reawwise on appdata folder
 --@about Main GUI for cinematic timeline creation
 
-isReaWwisePresent = reaper.file_exists("C:\\Users\\david\\AppData\\Roaming\\REAPER\\UserPlugins\\reaper_reawwise.dll")
-if not isReaWwisePresent then
-    reaper.ShowMessageBox("Reawwise is not installed, please install ReaWwise\n(Github URL copied to clipboard)", "ReaWwise missing", 0)
+function getAppDataPath()
+    -- Utiliser os.getenv pour obtenir la variable d'environnement APPDATA
+    local appDataPath = os.getenv("APPDATA")
+    return appDataPath
+end
+
+-- Fonction pour vérifier l'existence d'un fichier
+function fileExists(filePath)
+    local file = io.open(filePath, "r")
+    if file then
+        file:close()
+        return true
+    else
+        return false
+    end
+end
+
+-- Appeler la fonction pour obtenir le chemin AppData
+local appDataPath = getAppDataPath()
+if appDataPath then
+    -- Construire le chemin complet vers le fichier à vérifier
+    local filePath = appDataPath .. "\\REAPER\\UserPlugins\\reaper_reawwise.dll"
     
-    reaper.CF_SetClipboard("https://github.com/Audiokinetic/Reaper-Tools/raw/main/index.xml")
+    -- Vérifier si le fichier existe
+    if not fileExists(filePath) then
+        reaper.ShowMessageBox("Reawwise is not installed, please install ReaWwise\n(Github URL copied to clipboard)", "ReaWwise missing", 0)
+        reaper.CF_SetClipboard("https://github.com/Audiokinetic/Reaper-Tools/raw/main/index.xml")
+        return
+    end
+else
+    reaper.ShowMessageBox("Impossible de récupérer le chemin vers le dossier AppData", "Erreur", 0)
     return
 end
 
