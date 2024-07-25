@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="d49c26c26c80edf6a726d894cfc75eec12343175">
+<index version="1" name="DavidTF ReaScripts" commit="ee418be365e64cec295d1dc146a2ebe2cdd101a4">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -52,6 +52,23 @@
       </metadata>
       <version name="1.0" time="2024-02-16T10:45:42Z">
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/e0017c738c88b3d281023b07e2ad2750f40e081a/Audio%20Processing/ressources/luafft.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Color Management">
+    <reapack name="david_Color region based on clip in region color.lua" type="script" desc="Color region based on clip in region color">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Color region based on items in the region color. If multiple colors detected, show a popup to choose witch color for each region\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="DavidTF" time="2024-07-25T07:50:29Z">
+        <changelog><![CDATA[Initial release]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/ee418be365e64cec295d1dc146a2ebe2cdd101a4/Color%20Management/david_Color%20region%20based%20on%20clip%20in%20region%20color.lua</source>
       </version>
     </reapack>
   </category>
