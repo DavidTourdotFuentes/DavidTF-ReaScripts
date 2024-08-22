@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="ee418be365e64cec295d1dc146a2ebe2cdd101a4">
+<index version="1" name="DavidTF ReaScripts" commit="60afb001e6b1aa09e02ad86bedcfeaa83d7c4a65">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -85,6 +85,22 @@
       </metadata>
       <version name="1" author="DavidTF" time="2024-02-29T15:12:58Z">
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/4c057b8ca2610adb10ce5f4e727683eb7593caed/Tracks%20Management/david_Add%20tracks%20like%20ProTools.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Utilities">
+    <reapack name="delta_Show Time Selection Informations.lua" type="script" desc="Show time selection informations">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 This scripts get time selection values and convert them automatically in HOUR:MINUTES:SECONDS.MILLISECONDS and MESURES.BEATS.FRAMES and show values in a gfx window Click on window to copy values to clipboard\par}
+}
+]]></description>
+      </metadata>
+      <version name="2.0" author="Delta" time="2024-08-22T15:44:30Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/60afb001e6b1aa09e02ad86bedcfeaa83d7c4a65/Utilities/delta_Show%20Time%20Selection%20Informations.lua</source>
       </version>
     </reapack>
   </category>
