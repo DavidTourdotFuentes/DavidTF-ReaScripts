@@ -1,12 +1,10 @@
 --@description Color region based on clip in region color
 --@author DavidTF
---@version 1.0
+--@version 1.2
 --@changelog
---    Added buttons to jump to regions
---    Bugfix : Default color no longer display on black color in color choices view
---    Bugfix : Default color now properly display on color choices view
+--    Bugfix : Fixed clips detection in regions to avoid empty regions in GUI
 --@about
---    Color region based on items in the region color. If multiple colors detected, show a popup to choose witch color for each region
+--    
 
 region_to_color = {}
 
@@ -17,7 +15,7 @@ function ReturnColorsInRegion(marker_id, region_id, name, start_pos, end_pos)
     for i = 1, reaper.CountMediaItems(0) do
         current_item = reaper.GetMediaItem(0, i - 1)
         item_start = reaper.GetMediaItemInfo_Value(current_item, "D_POSITION") + 0.01
-        item_end = item_start + reaper.GetMediaItemInfo_Value(current_item, "D_LENGTH") - 0.01
+        item_end = item_start + reaper.GetMediaItemInfo_Value(current_item, "D_LENGTH") - 0.02
         
         if item_start >= start_pos and item_end <= end_pos then
             item_color = reaper.GetDisplayedMediaItemColor(current_item)
@@ -70,7 +68,7 @@ function GuiElements()
             
             if reaper.ImGui_Button(ctx, 'Region : ' .. preview_name) then
                 _, _, reg_pos, _ , _, _ = reaper.EnumProjectMarkers(region_to_color[i][1])
-                if reg_pos ~=  reaper.GetCursorPosition() then
+                if reg_pos ~= reaper.GetCursorPosition() then
                   reaper.SetEditCurPos(reg_pos, true, false)
                   reaper.Main_OnCommand(reaper.NamedCommandLookup('_SWS_SELNEXTMORR'), 0)
                 end
