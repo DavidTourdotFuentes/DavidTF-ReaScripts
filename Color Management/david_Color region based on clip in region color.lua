@@ -4,7 +4,7 @@
 --@changelog
 --    Bugfix : Fixed clips detection in regions to avoid empty regions in GUI
 --@about
---    
+--    No about.
 
 region_to_color = {}
 
