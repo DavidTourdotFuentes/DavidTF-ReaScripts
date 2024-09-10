@@ -1,12 +1,13 @@
 --@description Color region based on clip in region color
 --@author DavidTF
---@version 1.2
+--@version 1.3
 --@changelog
---    Bugfix : Fixed clips detection in regions to avoid empty regions in GUI
+--    Feature : Choose color in GUI now close the region color and if all regions color are choosed, the GUI will close
 --@about
---    No about.
+--    Color region based on clip in region color
 
 region_to_color = {}
+colored_regions = {}
 
 function ReturnColorsInRegion(marker_id, region_id, name, start_pos, end_pos)
 
@@ -60,37 +61,49 @@ function GuiElements()
     
         for i=1, #region_to_color do
         
-            reaper.ImGui_TableNextRow(ctx)
-            
-            reaper.ImGui_TableSetColumnIndex(ctx, 0)
-            
-            local preview_name = region_to_color[i][2] .. " " .. region_to_color[i][3]
-            
-            if reaper.ImGui_Button(ctx, 'Region : ' .. preview_name) then
-                _, _, reg_pos, _ , _, _ = reaper.EnumProjectMarkers(region_to_color[i][1])
-                if reg_pos ~= reaper.GetCursorPosition() then
-                  reaper.SetEditCurPos(reg_pos, true, false)
-                  reaper.Main_OnCommand(reaper.NamedCommandLookup('_SWS_SELNEXTMORR'), 0)
+            enabled = true
+        
+            for j=1, #colored_regions do
+                if colored_regions[j] == i then
+                    enabled = false
                 end
             end
             
-            for j=4, #region_to_color[i] do
-                            
-                color = reaper.ImGui_ColorConvertNative(region_to_color[i][j])
+            if enabled == true then
+                reaper.ImGui_TableNextRow(ctx)
                 
-                color = (color << 8) | 0xFF -- shift 0x00RRGGBB to 0xRRGGBB00 then add 0xFF for 100% opacity
+                reaper.ImGui_TableSetColumnIndex(ctx, 0)
                 
-                if reaper.ImGui_ColorButton(ctx, "Color "..i*j.." ("..color..")", color, reaper.ImGui_ColorEditFlags_None(), 30.0, 30.0) then
-                    reaper.Undo_BeginBlock()
-                    
-                    curr_retval, curr_isrgn, curr_pos, curr_rgnend, curr_name, curr_markrgnindexnumber = reaper.EnumProjectMarkers(region_to_color[i][1])
-                    reaper.SetProjectMarker3(0, curr_markrgnindexnumber, curr_isrgn, curr_pos, curr_rgnend, curr_name, region_to_color[i][j])
-                    
-                    reaper.UpdateArrange()
-                    reaper.Undo_EndBlock("User choose color for region based on items colors", 0)
+                local preview_name = region_to_color[i][2] .. " " .. region_to_color[i][3]
+                
+                if reaper.ImGui_Button(ctx, 'Region : ' .. preview_name) then
+                    _, _, reg_pos, _ , _, _ = reaper.EnumProjectMarkers(region_to_color[i][1])
+                    if reg_pos ~= reaper.GetCursorPosition() then
+                      reaper.SetEditCurPos(reg_pos, true, false)
+                      reaper.Main_OnCommand(reaper.NamedCommandLookup('_SWS_SELNEXTMORR'), 0)
+                    end
                 end
                 
-                reaper.ImGui_SameLine(ctx)
+                for j=4, #region_to_color[i] do
+                                
+                    color = reaper.ImGui_ColorConvertNative(region_to_color[i][j])
+                    
+                    color = (color << 8) | 0xFF -- shift 0x00RRGGBB to 0xRRGGBB00 then add 0xFF for 100% opacity
+                    
+                    if reaper.ImGui_ColorButton(ctx, "Color "..i*j.." ("..color..")", color, reaper.ImGui_ColorEditFlags_None(), 30.0, 30.0) then
+                        reaper.Undo_BeginBlock()
+                        
+                        curr_retval, curr_isrgn, curr_pos, curr_rgnend, curr_name, curr_markrgnindexnumber = reaper.EnumProjectMarkers(region_to_color[i][1])
+                        reaper.SetProjectMarker3(0, curr_markrgnindexnumber, curr_isrgn, curr_pos, curr_rgnend, curr_name, region_to_color[i][j])
+                        
+                        reaper.UpdateArrange()
+                        reaper.Undo_EndBlock("User choose color for region based on items colors", 0)
+                        
+                        table.insert(colored_regions, i)
+                    end
+                    
+                    reaper.ImGui_SameLine(ctx)
+                end
             end
         end
         
@@ -108,7 +121,6 @@ function GuiLoop()
     local visible, open = reaper.ImGui_Begin(ctx, 'Choose colors', true, window_flags)
     
     if visible then
-        
         GuiElements()
         
         reaper.ImGui_End(ctx)
@@ -117,7 +129,10 @@ function GuiLoop()
     reaper.ImGui_PopFont(ctx)
     
     if open and not isClosed then
-        reaper.defer(GuiLoop)
+        
+        if #colored_regions ~= #region_to_color then
+            reaper.defer(GuiLoop)
+        end
     end
 end
 
