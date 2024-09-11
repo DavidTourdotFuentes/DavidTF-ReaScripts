@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="8d84b6347db5ebfa6c23c74e7e6ffce3e30620c2">
+<index version="1" name="DavidTF ReaScripts" commit="a3bd65c34767bfc97fe4e7e15071a5275d6ae43f">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -77,6 +77,10 @@
       <version name="1.3" author="DavidTF" time="2024-09-10T10:32:00Z">
         <changelog><![CDATA[Feature : Choose color in GUI now close the region color and if all regions color are choosed, the GUI will close]]></changelog>
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/8d84b6347db5ebfa6c23c74e7e6ffce3e30620c2/Color%20Management/david_Color%20region%20based%20on%20clip%20in%20region%20color.lua</source>
+      </version>
+      <version name="1.4" author="DavidTF" time="2024-09-11T13:05:46Z">
+        <changelog><![CDATA[Bugfix : Empty region no longer add region in color choice with 0 colors]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/a3bd65c34767bfc97fe4e7e15071a5275d6ae43f/Color%20Management/david_Color%20region%20based%20on%20clip%20in%20region%20color.lua</source>
       </version>
     </reapack>
   </category>
