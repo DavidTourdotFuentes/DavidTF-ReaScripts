@@ -1,8 +1,8 @@
 --@description Color region based on clip in region color
 --@author DavidTF
---@version 1.3
+--@version 1.4
 --@changelog
---    Feature : Choose color in GUI now close the region color and if all regions color are choosed, the GUI will close
+--    Bugfix : Empty region no longer add region in color choice with 0 colors
 --@about
 --    Color region based on clip in region color
 
@@ -151,32 +151,32 @@ function Main()
         retval, isrgn, pos, rgnend, name, markrgnindexnumber = reaper.EnumProjectMarkers(i)
         
         if isrgn == true then
+        
+            -- If no timeline selection set, process all the regions
             if start_TR == 0 and start_TR == end_TR then
             
                 -- Find clips colors
                 color_list = ReturnColorsInRegion(i, markrgnindexnumber, name, pos, rgnend)
                 
-                if #color_list > 1 then
+                if #color_list > 1 and #color_list ~= 3 then
                     -- Let the user decide witch color choose on the marker color
                     table.insert(region_to_color, color_list)
                 else
                     -- Set the items color on the marker color
                     reaper.SetProjectMarker3(0, markrgnindexnumber, isrgn, pos, rgnend, name, color_list[1])
                 end
-            else
-                
-                if pos >= start_TR and rgnend <= end_TR then
-                
-                    -- Find clips colors
-                    color_list = ReturnColorsInRegion(i, markrgnindexnumber, name, pos, rgnend)
-                
-                    if #color_list > 1 then
-                        -- Let the user decide witch color choose on the marker color
-                        table.insert(region_to_color, color_list)
-                    else
-                        -- Set the items color on the marker color
-                        reaper.SetProjectMarker3(0, markrgnindexnumber, isrgn, pos, rgnend, name, color_list[1])
-                    end
+            -- If no timeline selection set, process all the regions
+            elseif pos >= start_TR and rgnend <= end_TR then
+            
+                -- Find clips colors
+                color_list = ReturnColorsInRegion(i, markrgnindexnumber, name, pos, rgnend)
+            
+                if #color_list > 1 and #color_list ~= 3 then
+                    -- Let the user decide witch color choose on the marker color
+                    table.insert(region_to_color, color_list)
+                else
+                    -- Set the items color on the marker color
+                    reaper.SetProjectMarker3(0, markrgnindexnumber, isrgn, pos, rgnend, name, color_list[1])
                 end
             end
         end
