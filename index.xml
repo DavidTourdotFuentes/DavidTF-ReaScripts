@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="a3bd65c34767bfc97fe4e7e15071a5275d6ae43f">
+<index version="1" name="DavidTF ReaScripts" commit="bb7eba0aebff6b3a751f294eb742588e4a9a2a88">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -81,6 +81,21 @@
       <version name="1.4" author="DavidTF" time="2024-09-11T13:05:46Z">
         <changelog><![CDATA[Bugfix : Empty region no longer add region in color choice with 0 colors]]></changelog>
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/a3bd65c34767bfc97fe4e7e15071a5275d6ae43f/Color%20Management/david_Color%20region%20based%20on%20clip%20in%20region%20color.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Color region based on clip parent track color.lua" type="script" desc="Color region based on clip parent track color">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Color region based on clip parent track color\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="DavidTF" time="2024-09-12T08:20:37Z">
+        <changelog><![CDATA[Empty]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/bb7eba0aebff6b3a751f294eb742588e4a9a2a88/Color%20Management/david_Color%20region%20based%20on%20clip%20parent%20track%20color.lua</source>
       </version>
     </reapack>
   </category>
