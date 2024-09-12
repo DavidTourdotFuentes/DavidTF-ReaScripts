@@ -1,10 +1,10 @@
---@description Color region based on clip parent track color
+--@description Color all region based on clip parent track color
 --@author DavidTF
---@version 1.0
+--@version 1.1
 --@changelog
---    Empty
+--    Remove time selection impact
 --@about
---    Color region based on clip parent track color
+--    Color all regions based on clip parent track color
 
 region_to_color = {}
 colored_regions = {}
@@ -63,42 +63,24 @@ function ReturnColorsInRegion(marker_id, region_id, name, start_pos, end_pos)
 end
 
 function Main()
-  
-    start_TR, end_TR = reaper.GetSet_LoopTimeRange2(0, false, false, 0, 0, false)
-  
+
     num_total, num_markers, num_regions = reaper.CountProjectMarkers(0)
   
     for i=0, num_total do
         retval, isrgn, pos, rgnend, name, markrgnindexnumber = reaper.EnumProjectMarkers(i)
         
         if isrgn == true then
-        
-            -- If no timeline selection set, process all the regions
-            if start_TR == 0 and start_TR == end_TR then
             
-                -- Find clips colors
-                color_list = ReturnColorsInRegion(i, markrgnindexnumber, name, pos, rgnend)
-                if #color_list > 3 then
-                    --reaper.ShowConsoleMsg("\n"..color_list[1].." / "..color_list[2].." / "..color_list[3].." / "..color_list[4])
-                    
-                    curr_retval, curr_isrgn, curr_pos, curr_rgnend, curr_name, curr_markrgnindexnumber = reaper.EnumProjectMarkers(color_list[1])
-                    reaper.SetProjectMarker3(0, curr_markrgnindexnumber, curr_isrgn, curr_pos, curr_rgnend, curr_name, color_list[4])
-                    
-                    -- Let the user decide witch color choose on the marker color
-                    table.insert(region_to_color, color_list)
-                end
-            -- If no timeline selection set, process all the regions
-            elseif pos >= start_TR and rgnend <= end_TR then
-            
-                -- Find clips colors
-                color_list = ReturnColorsInRegion(i, markrgnindexnumber, name, pos, rgnend)
-            
-                if #color_list > 3 then
-                    --reaper.ShowConsoleMsg("\n"..color_list[1].." / "..color_list[2].." / "..color_list[3].." / "..color_list[4])
+            -- Find clips colors
+            color_list = ReturnColorsInRegion(i, markrgnindexnumber, name, pos, rgnend)
+            if #color_list > 3 then
+                --reaper.ShowConsoleMsg("\n"..color_list[1].." / "..color_list[2].." / "..color_list[3].." / "..color_list[4])
                 
-                    -- Let the user decide witch color choose on the marker color
-                    table.insert(region_to_color, color_list)
-                end
+                curr_retval, curr_isrgn, curr_pos, curr_rgnend, curr_name, curr_markrgnindexnumber = reaper.EnumProjectMarkers(color_list[1])
+                reaper.SetProjectMarker3(0, curr_markrgnindexnumber, curr_isrgn, curr_pos, curr_rgnend, curr_name, color_list[4])
+                
+                -- Let the user decide witch color choose on the marker color
+                table.insert(region_to_color, color_list)
             end
         end
     end
@@ -111,4 +93,4 @@ reaper.PreventUIRefresh(1)
 Main()
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
-reaper.Undo_EndBlock("Color region based on clip color in region", 0)
+reaper.Undo_EndBlock("Color all regions based on clip parent track color", 0)
