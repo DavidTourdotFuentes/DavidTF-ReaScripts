@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="6a4608ca31d9f7fee6043076bee35c46432a26f3">
+<index version="1" name="DavidTF ReaScripts" commit="8a648257b3cf37fcb8bf95339f4d3fd23c877e78">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -137,12 +137,15 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 No about.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Removed debug\par}
 }
 ]]></description>
       </metadata>
       <version name="1.0" author="DavidTF" time="2024-09-23T17:54:07Z">
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/6a4608ca31d9f7fee6043076bee35c46432a26f3/Tracks%20Management/david_Set%20Automatic%20record-arm%20when%20track%20selected%20on%20all%20track%20with%20instrument%20in%20fx%20list.lua</source>
+      </version>
+      <version name="1.1" author="DavidTF" time="2024-09-23T18:09:45Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/8a648257b3cf37fcb8bf95339f4d3fd23c877e78/Tracks%20Management/david_Set%20Automatic%20record-arm%20when%20track%20selected%20on%20all%20track%20with%20instrument%20in%20fx%20list.lua</source>
       </version>
     </reapack>
   </category>
