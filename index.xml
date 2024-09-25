@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="8a648257b3cf37fcb8bf95339f4d3fd23c877e78">
+<index version="1" name="DavidTF ReaScripts" commit="ff163b47207502cc7ef13b0d2460e887ea7c248a">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -129,6 +129,34 @@
       </metadata>
       <version name="1" author="DavidTF" time="2024-02-29T15:12:58Z">
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/4c057b8ca2610adb10ce5f4e727683eb7593caed/Tracks%20Management/david_Add%20tracks%20like%20ProTools.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Select track above the selected track.lua" type="script" desc="Select track above the selected track">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Inital commit\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="DavidTF" time="2024-09-25T10:31:30Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/ff163b47207502cc7ef13b0d2460e887ea7c248a/Tracks%20Management/david_Select%20track%20above%20the%20selected%20track.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Select track below the selected track.lua" type="script" desc="Select track below the selected track">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Inital commit\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="DavidTF" time="2024-09-25T10:31:30Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/ff163b47207502cc7ef13b0d2460e887ea7c248a/Tracks%20Management/david_Select%20track%20below%20the%20selected%20track.lua</source>
       </version>
     </reapack>
     <reapack name="david_Set Automatic record-arm when track selected on all track with instrument in fx list.lua" type="script" desc="Set &quot;Automatic record-arm when track selected&quot; on all track with instrument in fx list">
