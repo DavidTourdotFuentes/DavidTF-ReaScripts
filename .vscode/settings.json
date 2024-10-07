@@ -1,0 +1,9 @@
+{
+    "Lua.diagnostics.globals": [
+        "reaper",
+        "gui",
+        "sys_gui",
+        "sys_waapi",
+        "sys_utils"
+    ]
+}
