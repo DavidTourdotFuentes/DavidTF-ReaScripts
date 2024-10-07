@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="ff163b47207502cc7ef13b0d2460e887ea7c248a">
+<index version="1" name="DavidTF ReaScripts" commit="152c185550968aceba70f34ee697eb7ad35581fe">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -137,12 +137,16 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Inital commit\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Select track below the selected track\par}
 }
 ]]></description>
       </metadata>
       <version name="1.0" author="DavidTF" time="2024-09-25T10:31:30Z">
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/ff163b47207502cc7ef13b0d2460e887ea7c248a/Tracks%20Management/david_Select%20track%20above%20the%20selected%20track.lua</source>
+      </version>
+      <version name="1.1" author="DavidTF" time="2024-10-07T13:01:31Z">
+        <changelog><![CDATA[Bugfix: Clear selection before selecting new track]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/152c185550968aceba70f34ee697eb7ad35581fe/Tracks%20Management/david_Select%20track%20above%20the%20selected%20track.lua</source>
       </version>
     </reapack>
     <reapack name="david_Select track below the selected track.lua" type="script" desc="Select track below the selected track">
@@ -151,12 +155,16 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Inital commit\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Select track below the selected track\par}
 }
 ]]></description>
       </metadata>
       <version name="1.0" author="DavidTF" time="2024-09-25T10:31:30Z">
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/ff163b47207502cc7ef13b0d2460e887ea7c248a/Tracks%20Management/david_Select%20track%20below%20the%20selected%20track.lua</source>
+      </version>
+      <version name="1.1" author="DavidTF" time="2024-10-07T13:01:31Z">
+        <changelog><![CDATA[Bugfix: Clear selection before selecting new track]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/152c185550968aceba70f34ee697eb7ad35581fe/Tracks%20Management/david_Select%20track%20below%20the%20selected%20track.lua</source>
       </version>
     </reapack>
     <reapack name="david_Set Automatic record-arm when track selected on all track with instrument in fx list.lua" type="script" desc="Set &quot;Automatic record-arm when track selected&quot; on all track with instrument in fx list">
