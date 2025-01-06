@@ -1,7 +1,7 @@
 --@description david_Wwise timeline cinematic
 --@author DavidTF
---@version 0.4
---@changelog Detection of reawwise on appdata folder
+--@version 1.0
+--@changelog Reworked architecture
 --@about Main GUI for cinematic timeline creation
 
 function getAppDataPath()
