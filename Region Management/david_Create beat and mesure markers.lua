@@ -1,3 +1,11 @@
+--@description Create beat and mesure markers
+--@author DavidTF
+--@version 1.0
+--@changelog
+--    Initial release
+--@about
+--    Create beat and mesure markers
+
 local _, bpi = reaper.GetProjectTimeSignature()
 
 local sel_start, sel_end = reaper.GetSet_LoopTimeRange2(0, false, false, 0, 0, false)
