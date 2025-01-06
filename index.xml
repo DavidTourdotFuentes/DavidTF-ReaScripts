@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="152c185550968aceba70f34ee697eb7ad35581fe">
+<index version="1" name="DavidTF ReaScripts" commit="be3a953ffddbd4f74ab53603e57c3aaa0c715b2d">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -131,6 +131,21 @@
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/4c057b8ca2610adb10ce5f4e727683eb7593caed/Tracks%20Management/david_Add%20tracks%20like%20ProTools.lua</source>
       </version>
     </reapack>
+    <reapack name="david_Rename first selected track.lua" type="script" desc="Rename first selected track">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Rename first selected track\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="DavidTF" time="2024-10-09T08:03:11Z">
+        <changelog><![CDATA[First commit.]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/576786a10f830fd383f0a7911ce89bc465e30b80/Tracks%20Management/david_Rename%20first%20selected%20track.lua</source>
+      </version>
+    </reapack>
     <reapack name="david_Select track above the selected track.lua" type="script" desc="Select track above the selected track">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -169,7 +184,7 @@
     </reapack>
     <reapack name="david_Set Automatic record-arm when track selected on all track with instrument in fx list.lua" type="script" desc="Set &quot;Automatic record-arm when track selected&quot; on all track with instrument in fx list">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -223,7 +238,7 @@
     </reapack>
     <reapack name="david_Wwise timeline cinematic.lua" type="script" desc="david_Wwise timeline cinematic">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -247,14 +262,18 @@
         <changelog><![CDATA[Detection of reawwise on appdata folder]]></changelog>
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/d49c26c26c80edf6a726d894cfc75eec12343175/Waapi/david_Wwise%20timeline%20cinematic.lua</source>
       </version>
+      <version name="1.0" author="DavidTF" time="2025-01-06T09:18:48Z">
+        <changelog><![CDATA[Reworked architecture]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/be3a953ffddbd4f74ab53603e57c3aaa0c715b2d/Waapi/david_Wwise%20timeline%20cinematic.lua</source>
+      </version>
     </reapack>
   </category>
   <metadata>
-    <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+    <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Reaper repository for all my scripts !\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 Reaper repository for all my scripts !\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 The URL to import in ReaPack : {\field{\*\fldinst{HYPERLINK "https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/master/index.xml"}}{\fldrslt{\ul
 https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/master/index.xml
 }}}
