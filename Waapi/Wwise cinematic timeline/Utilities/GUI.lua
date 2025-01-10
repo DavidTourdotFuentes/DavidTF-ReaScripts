@@ -20,7 +20,7 @@ Gui.error_logs = true
 
 -- Local variables
 local window_name = ScriptName..' - '..ScriptVersion
-local winW, winH = 800, 600
+local winW, winH = 890, 600
 local posX, posY = 0, 0
 local is_open = false
 local frame_padding = reaper.ImGui_StyleVar_FramePadding()
@@ -197,7 +197,7 @@ function Gui.MainComponents()
 
     reaper.ImGui_Separator(Gui.ctx)
 
-    if reaper.ImGui_BeginTable(Gui.ctx, 'table_log_options', 5) then
+    if reaper.ImGui_BeginTable(Gui.ctx, 'table_log_options', 6) then
         reaper.ImGui_TableNextRow(Gui.ctx)
         reaper.ImGui_TableNextColumn(Gui.ctx)
         
@@ -216,8 +216,13 @@ function Gui.MainComponents()
         end
         
         reaper.ImGui_TableNextColumn(Gui.ctx)
-        if reaper.ImGui_Button(Gui.ctx, 'Clean Wwise Project', old_w) then
+        if reaper.ImGui_Button(Gui.ctx, 'Clean Wwise', old_w) then
             sys_gui.CleanWwise()
+        end
+
+        reaper.ImGui_TableNextColumn(Gui.ctx)
+        if reaper.ImGui_Button(Gui.ctx, 'Add Event Item', old_w) then
+            sys_utils.CreateItemAtCursor()
         end
         
         reaper.ImGui_EndTable(Gui.ctx)
@@ -353,7 +358,7 @@ function Gui.PushTheme()
     reaper.ImGui_PushStyleVar(Gui.ctx, reaper.ImGui_StyleVar_FrameRounding(),    2)
     -- Colors
     reaper.ImGui_PushStyleColor(Gui.ctx, reaper.ImGui_Col_WindowBg(), 0x111111FF)
-    reaper.ImGui_PushStyleColor(Gui.ctx, reaper.ImGui_Col_Text(), 0x111111FF)
+    reaper.ImGui_PushStyleColor(Gui.ctx, reaper.ImGui_Col_Text(), 0XFFFFFFFF)
 end
 
 function Gui.PopTheme()

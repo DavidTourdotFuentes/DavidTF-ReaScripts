@@ -146,7 +146,16 @@ function SysUtils.OnEvent(itemName)
     return output
 end
 
-function SysUtils.CreateTextItem(track, position, length, text)
+function SysUtils.CreateItemAtCursor(length, text)
+    local track = SysUtils.FindTrackByName("Wwise Timeline")
+
+    if track then
+        local cursorPos = reaper.GetCursorPosition()
+        CreateTextItem(track, cursorPos, 1, "Event name")
+    end
+end
+
+function CreateTextItem(track, position, length, text)
 
     local item = reaper.AddMediaItemToTrack(track)
   
