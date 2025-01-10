@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="be3a953ffddbd4f74ab53603e57c3aaa0c715b2d">
+<index version="1" name="DavidTF ReaScripts" commit="7888f472b1eb97dd3e10817defbc54a13ffaac1c">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -100,6 +100,21 @@
     </reapack>
   </category>
   <category name="Region Management">
+    <reapack name="david_Create beat and mesure markers.lua" type="script" desc="Create beat and mesure markers">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Create beat and mesure markers\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="DavidTF" time="2025-01-06T09:34:13Z">
+        <changelog><![CDATA[Initial release]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/64543ea3c00cc2e4e21ed66cd468e78bf34556ad/Region%20Management/david_Create%20beat%20and%20mesure%20markers.lua</source>
+      </version>
+    </reapack>
     <reapack name="david_Create region from selection with padding.lua" type="script" desc="Create region from selection with padding">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -213,58 +228,6 @@
       </metadata>
       <version name="2.0" author="Delta" time="2024-08-22T15:49:08Z">
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/fdf165a7090b3a70c622d958118f37e82ea2659d/Utilities/david_Show%20Time%20Selection%20Informations.lua</source>
-      </version>
-    </reapack>
-  </category>
-  <category name="Waapi">
-    <reapack name="david_Wwise timeline cinematic (system).lua" type="script" desc="david_Wwise timeline cinematic (system)">
-      <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
-{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
-\widowctrl\hyphauto
-
-{\pard \ql \f0 \sa180 \li0 \fi0 Main functions systems for cinematic timeline creation\par}
-}
-]]></description>
-      </metadata>
-      <version name="0.1" author="DavidTF" time="2024-07-02T09:51:38Z">
-        <changelog><![CDATA[WIP Initial creation]]></changelog>
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/6b0317b15a96fbd1db7bbfc73d956c1e0d44cd20/Waapi/david_Wwise%20timeline%20cinematic%20(system).lua</source>
-      </version>
-      <version name="0.2" author="DavidTF" time="2024-07-02T13:55:58Z">
-        <changelog><![CDATA[Add item color coding based on log message]]></changelog>
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/fbc46d4ee99a5360555b2c424082c2b4db7d1646/Waapi/david_Wwise%20timeline%20cinematic%20(system).lua</source>
-      </version>
-    </reapack>
-    <reapack name="david_Wwise timeline cinematic.lua" type="script" desc="david_Wwise timeline cinematic">
-      <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
-{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
-\widowctrl\hyphauto
-
-{\pard \ql \f0 \sa180 \li0 \fi0 Main GUI for cinematic timeline creation\par}
-}
-]]></description>
-      </metadata>
-      <version name="0.1" author="DavidTF" time="2024-07-02T09:51:38Z">
-        <changelog><![CDATA[WIP Initial creation]]></changelog>
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/6b0317b15a96fbd1db7bbfc73d956c1e0d44cd20/Waapi/david_Wwise%20timeline%20cinematic.lua</source>
-      </version>
-      <version name="0.2" author="DavidTF" time="2024-07-02T12:32:01Z">
-        <changelog><![CDATA[Added MessageBox if ReaWwise not installed]]></changelog>
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/b6c41ec69cd33cb46f1160717a797cd965985643/Waapi/david_Wwise%20timeline%20cinematic.lua</source>
-      </version>
-      <version name="0.3" author="DavidTF" time="2024-07-02T13:55:58Z">
-        <changelog><![CDATA[Bugfix on adding event items]]></changelog>
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/fbc46d4ee99a5360555b2c424082c2b4db7d1646/Waapi/david_Wwise%20timeline%20cinematic.lua</source>
-      </version>
-      <version name="0.4" author="DavidTF" time="2024-07-10T15:38:34Z">
-        <changelog><![CDATA[Detection of reawwise on appdata folder]]></changelog>
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/d49c26c26c80edf6a726d894cfc75eec12343175/Waapi/david_Wwise%20timeline%20cinematic.lua</source>
-      </version>
-      <version name="1.0" author="DavidTF" time="2025-01-06T09:18:48Z">
-        <changelog><![CDATA[Reworked architecture]]></changelog>
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/be3a953ffddbd4f74ab53603e57c3aaa0c715b2d/Waapi/david_Wwise%20timeline%20cinematic.lua</source>
       </version>
     </reapack>
   </category>
