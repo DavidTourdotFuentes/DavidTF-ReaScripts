@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="1ee413824d7eda7e436ef0d497af699ef2f2c33d">
+<index version="1" name="DavidTF ReaScripts" commit="5ee5db8e4d7f8e0e0d234ead9f80db1161837644">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -143,6 +143,21 @@
       <version name="1.0" author="DavidTF" time="2024-09-09T12:26:46Z">
         <changelog><![CDATA[Initial release]]></changelog>
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/4223b79226542c605eea2fdf3c4c54522cbbcc59/Region%20Management/david_Create%20region%20from%20selection%20with%20padding.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Renumber region IDs.lua" type="script" desc="Renumber region IDs">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Renumber region ID keeping RRM referencies\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="DavidTF" time="2025-03-19T10:36:17Z">
+        <changelog><![CDATA[Initial release]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/5ee5db8e4d7f8e0e0d234ead9f80db1161837644/Region%20Management/david_Renumber%20region%20IDs.lua</source>
       </version>
     </reapack>
   </category>
