@@ -1,4 +1,4 @@
--- @description ToggleDisplayJSWindowID
+-- @description Toggle Display JS Window ID
 -- @author Delta
 -- @version 1.0
 -- @about
