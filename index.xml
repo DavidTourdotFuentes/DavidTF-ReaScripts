@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="47317acf74c7f3bb72bb9cceada9ac1b1ad01c42">
+<index version="1" name="DavidTF ReaScripts" commit="a86c2b2e108742e514eb7dc5fc5767b00646c02e">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -246,6 +246,21 @@
     </reapack>
   </category>
   <category name="Utilities">
+    <reapack name="david_Extend region of selected item to include reverb tail.lua" type="script" desc="Extend region of selected item to include reverb tail">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Extends the region containing the selected item to include the reverb tails\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="DavidTF" time="2025-07-03T08:31:54Z">
+        <changelog><![CDATA[First commit]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/a86c2b2e108742e514eb7dc5fc5767b00646c02e/Utilities/david_Extend%20region%20of%20selected%20item%20to%20include%20reverb%20tail.lua</source>
+      </version>
+    </reapack>
     <reapack name="david_Show Time Selection Informations.lua" type="script" desc="Show time selection informations">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -260,7 +275,7 @@
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/fdf165a7090b3a70c622d958118f37e82ea2659d/Utilities/david_Show%20Time%20Selection%20Informations.lua</source>
       </version>
     </reapack>
-    <reapack name="david_ToggleDisplayJSWindowID.lua" type="script" desc="ToggleDisplayJSWindowID">
+    <reapack name="david_Toggle Display JS Window ID.lua" type="script" desc="Toggle Display JS Window ID">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
@@ -270,8 +285,8 @@
 }
 ]]></description>
       </metadata>
-      <version name="1.0" author="Delta" time="2025-07-01T13:58:25Z">
-        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/47317acf74c7f3bb72bb9cceada9ac1b1ad01c42/Utilities/david_ToggleDisplayJSWindowID.lua</source>
+      <version name="1.0" author="Delta" time="2025-07-03T08:31:54Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/a86c2b2e108742e514eb7dc5fc5767b00646c02e/Utilities/david_Toggle%20Display%20JS%20Window%20ID.lua</source>
       </version>
     </reapack>
   </category>
