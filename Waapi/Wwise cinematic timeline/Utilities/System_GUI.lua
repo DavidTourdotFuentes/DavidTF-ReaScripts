@@ -3,35 +3,35 @@
 local SysGui = {}
 
 function SysGui.Close(time)
-    gui.show_popup = true
-    gui.start_time = time or 0
+    Gui.show_popup = true
+    Gui.start_time = time or 0
 end
 
 function SysGui.Generate()
-    gui.log[#gui.log + 1] = "-----------------[ START TIMELINE GENERATION ]-----------------"
+    Gui.log[#Gui.log + 1] = "-----------------[ START TIMELINE GENERATION ]-----------------"
 
-    local remove = sys_waapi.Remove(gui.event_name, "Event")
+    local remove = Sys_waapi.Remove(Gui.event_name, "Event")
     SysGui.AddLog(remove)
 
     -- CREATE TIMELINE EVENT
-    local event_duration = sys_waapi.CreateTimelineEvent()
-    gui.event_duration = event_duration
+    local event_duration = Sys_waapi.CreateTimelineEvent()
+    Gui.event_duration = event_duration
 
-    if gui.auto_record then
-        gui.is_started = true
-        gui.start_time = reaper.ImGui_GetTime(gui.ctx)
-        local record = sys_waapi.Record()
+    if Gui.auto_record then
+        Gui.is_started = true
+        Gui.start_time = reaper.ImGui_GetTime(Gui.ctx)
+        local record = Sys_waapi.Record()
 
         for i = 1, #record do
             SysGui.AddLog(record[i])
         end
     end
 
-    return duration
+    return event_duration
 end
 
 function SysGui.Browse()
-    local retval, path = reaper.GetUserFileNameForRead(gui.output_path, "Select a file", "")
+    local retval, path = reaper.GetUserFileNameForRead(Gui.output_path, "Select a file", "")
     if retval then
         return path
     end
@@ -47,20 +47,20 @@ function SysGui.AddLog(_output)
         output = _output
     end
     local time = os.date("*t")
-    local strTime = ("%02d:%02d:%02d"):format(time.hour, time.min, time.sec)
+    local str_time = ("%02d:%02d:%02d"):format(time.hour, time.min, time.sec)
 
-    if (gui.info_logs and output.state == "INFO") or (gui.warning_logs and output.state == "WARNING") or (gui.error_logs and output.state == "ERROR") then
-        local text = "[".. strTime .."] : [" .. output.state .. "] : " .. output.desc
-        table.insert(gui.log, text)
+    if (Gui.info_logs and output.state == "INFO") or (Gui.warning_logs and output.state == "WARNING") or (Gui.error_logs and output.state == "ERROR") then
+        local text = "[".. str_time .."] : [" .. output.state .. "] : " .. output.desc
+        table.insert(Gui.log, text)
     end
 end
 
 function SysGui.ClearLogs()
-    gui.log = {}
+    Gui.log = {}
 end
 
 function SysGui.CleanWwise()
-    local clean = sys_waapi.CleanWwiseSession()
+    local clean = Sys_waapi.CleanWwiseSession()
 
     for i = 1, #clean do
         SysGui.AddLog(clean)

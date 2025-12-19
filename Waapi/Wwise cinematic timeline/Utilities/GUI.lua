@@ -20,8 +20,8 @@ Gui.error_logs = true
 
 -- Local variables
 local window_name = ScriptName..' - '..ScriptVersion
-local winW, winH = 890, 600
-local posX, posY = 0, 0
+local win_W, win_H = 890, 655
+local pos_X, pos_Y = 0, 0
 local is_open = false
 local frame_padding = reaper.ImGui_StyleVar_FramePadding()
 local pin = false
@@ -36,8 +36,9 @@ local progress_value = 0
 local progressbar_space_h = 22.0
 
 Gui.stereo_downmix = true
-local set_events = false
 local preview_mode = false
+
+local old_log_length = nil
 
 function Gui.Loop()
     Gui.PushTheme()
@@ -49,27 +50,23 @@ function Gui.Loop()
         reaper.ImGui_PushStyleColor(Gui.ctx, reaper.ImGui_Col_WindowBg(), reaper.ImGui_ColorConvertDouble4ToU32(0.2,0,0,0.95))
     end
 
-    if set_events then
-        reaper.ImGui_PushStyleColor(Gui.ctx, reaper.ImGui_Col_WindowBg(), reaper.ImGui_ColorConvertDouble4ToU32(0.0,0.15,0,0.95))
-    end
-
     if pin then
         window_flags = window_flags | reaper.ImGui_WindowFlags_TopMost()
     end
 
-    reaper.ImGui_SetNextWindowSize(Gui.ctx, winW, winH, reaper.ImGui_Cond_Once())
+    reaper.ImGui_SetNextWindowSize(Gui.ctx, win_W, win_H, reaper.ImGui_Cond_Once())
     -- Font --
     reaper.ImGui_PushFont(Gui.ctx, FONT)
     -- Begin --
     visible, is_open = reaper.ImGui_Begin(Gui.ctx, window_name, true, window_flags)
 
     if visible then
-        winW, winH = reaper.ImGui_GetWindowSize(Gui.ctx)
-        posX, posY = reaper.ImGui_GetWindowPos(Gui.ctx)
-        if show_popup then
+        win_W, win_H = reaper.ImGui_GetWindowSize(Gui.ctx)
+        pos_X, pos_Y = reaper.ImGui_GetWindowPos(Gui.ctx)
+        if Gui.show_popup then
             Gui.GuiPopup()
             if reaper.ImGui_GetTime(Gui.ctx) > Gui.start_time + 0.1 then
-                sys_waapi.Disconnect()
+                Sys_waapi.Disconnect()
                 is_open = false
             end
         end
@@ -77,21 +74,16 @@ function Gui.Loop()
         if preview_mode then
             reaper.ImGui_PopStyleColor(Gui.ctx)
         end
-        if set_events then
-            reaper.ImGui_PopStyleColor(Gui.ctx)
-        end
 
-        if ThreadConnect then
-            local is_finished, logs = ThreadConnect()
-            if is_finished then
-                ThreadConnect = nil
-                sys_gui.AddLog(logs)
-            end
+        if App_state == "Reconnecting" then
+            reaper.defer(Sys_waapi.Connect)
         end
 
         Gui.TopBar()
 
         Gui.MainComponents()
+
+        Sys_utils.Loop()
 
         reaper.ImGui_End(Gui.ctx)
     end
@@ -103,12 +95,12 @@ function Gui.Loop()
         reaper.defer(Gui.Loop)
     else
         local time = reaper.ImGui_GetTime(Gui.ctx)
-        sys_gui.Close(time)
+        Sys_gui.Close(time)
     end
 
     if preview_mode then
-        local output = sys_utils.PreviewLoop()
-        sys_gui.AddLog(output)
+        local output = Sys_utils.PreviewLoop()
+        Sys_gui.AddLog(output)
     end
 
     if Gui.is_started then
@@ -117,8 +109,8 @@ function Gui.Loop()
         progress_value = current_time / Gui.event_duration
 
         if reaper.ImGui_GetTime(Gui.ctx) - Gui.start_time >= Gui.event_duration then
-            local import = sys_waapi.Stop(gui.output_path)
-            sys_gui.AddLog(import)
+            local import = Sys_waapi.Stop(Gui.output_path)
+            Sys_gui.AddLog(import)
 
             Gui.is_started = false
             Gui.start_time = 0
@@ -146,7 +138,7 @@ function Gui.TopBar()
         end
         reaper.ImGui_SameLine(Gui.ctx)
         if reaper.ImGui_Button(Gui.ctx, "X") then
-            sys_gui.SetButtonState()
+            Sys_gui.SetButtonState()
             is_open = false
         end
 
@@ -156,12 +148,12 @@ end
 
 function Gui.MainComponents()
 
-    if not sys_waapi.connected then
+    if not Sys_waapi.connected then
         reaper.ImGui_BeginDisabled(Gui.ctx)
     end
 
     if reaper.ImGui_BeginTable(Gui.ctx, 'table_main_event_name', 3, reaper.ImGui_TableFlags_SizingStretchProp()) then
-        reaper.ImGui_TableNextRow(Gui.ctx) 
+        reaper.ImGui_TableNextRow(Gui.ctx)
         reaper.ImGui_TableNextColumn(Gui.ctx)
         reaper.ImGui_Text(Gui.ctx, 'Timeline Event Name : '); reaper.ImGui_SameLine(Gui.ctx)
         local w, h = reaper.ImGui_GetContentRegionAvail(Gui.ctx)
@@ -173,7 +165,7 @@ function Gui.MainComponents()
         reaper.ImGui_PushItemWidth(Gui.ctx, w/1.3)
         _, Gui.event_length = reaper.ImGui_InputText(Gui.ctx, '##inputText_event_length', Gui.event_length, reaper.ImGui_InputTextFlags_CharsDecimal())
         reaper.ImGui_PopItemWidth(Gui.ctx)
-    
+
         reaper.ImGui_EndTable(Gui.ctx)
     end
         if reaper.ImGui_BeginTable(Gui.ctx, 'table_recorder_path', 3, reaper.ImGui_TableFlags_SizingStretchProp()) then
@@ -181,50 +173,55 @@ function Gui.MainComponents()
         reaper.ImGui_TableNextColumn(Gui.ctx)
         local old_w, h = reaper.ImGui_GetContentRegionAvail(Gui.ctx)
         _, Gui.auto_record = reaper.ImGui_Checkbox(Gui.ctx, 'Auto Record', Gui.auto_record)
-        
+
         reaper.ImGui_TableNextColumn(Gui.ctx)
         _, Gui.stereo_downmix = reaper.ImGui_Checkbox(Gui.ctx, 'Stereo Downmix', Gui.stereo_downmix)
-        
+
         reaper.ImGui_TableNextColumn(Gui.ctx)
         reaper.ImGui_Text(Gui.ctx, 'Path : '); reaper.ImGui_SameLine(Gui.ctx)
         _, Gui.output_path = reaper.ImGui_InputText(Gui.ctx, '##inputText_output_path', Gui.output_path); reaper.ImGui_SameLine(Gui.ctx)
         if reaper.ImGui_Button(Gui.ctx, 'BROWSE', old_w) then
-            Gui.output_path = sys_gui.Browse()
+            Gui.output_path = Sys_gui.Browse()
         end
-        
+
         reaper.ImGui_EndTable(Gui.ctx)
     end
 
     reaper.ImGui_Separator(Gui.ctx)
 
-    if reaper.ImGui_BeginTable(Gui.ctx, 'table_log_options', 6) then
+    if reaper.ImGui_BeginTable(Gui.ctx, 'table_log_options', 5) then
         reaper.ImGui_TableNextRow(Gui.ctx)
         reaper.ImGui_TableNextColumn(Gui.ctx)
-        
+
         local old_w, h = reaper.ImGui_GetContentRegionAvail(Gui.ctx)
         _, Gui.info_logs = reaper.ImGui_Checkbox(Gui.ctx, 'Show Info Logs', Gui.info_logs)
-        
+
         reaper.ImGui_TableNextColumn(Gui.ctx)
         _, Gui.warning_logs = reaper.ImGui_Checkbox(Gui.ctx, 'Show Warning Logs', Gui.warning_logs)
-        
+
         reaper.ImGui_TableNextColumn(Gui.ctx)
         _, Gui.error_logs = reaper.ImGui_Checkbox(Gui.ctx, 'Show Error Logs', Gui.error_logs)
-        
+
         reaper.ImGui_TableNextColumn(Gui.ctx)
         if reaper.ImGui_Button(Gui.ctx, 'Clear Logs', old_w) then
-            sys_gui.ClearLogs()
-        end
-        
-        reaper.ImGui_TableNextColumn(Gui.ctx)
-        if reaper.ImGui_Button(Gui.ctx, 'Clean Wwise', old_w) then
-            sys_gui.CleanWwise()
+            Sys_gui.ClearLogs()
         end
 
         reaper.ImGui_TableNextColumn(Gui.ctx)
-        if reaper.ImGui_Button(Gui.ctx, 'Add Event Item', old_w) then
-            sys_utils.CreateItemAtCursor()
+        if reaper.ImGui_Button(Gui.ctx, 'Clean Wwise', old_w) then
+            Sys_gui.CleanWwise()
         end
-        
+
+        reaper.ImGui_TableNextColumn(Gui.ctx)
+        if reaper.ImGui_Button(Gui.ctx, 'Add Event', old_w) then
+            Sys_utils.CreateItemAtCursor()
+        end
+
+        reaper.ImGui_TableNextColumn(Gui.ctx)
+        if reaper.ImGui_Button(Gui.ctx, 'Add RTPC', old_w) then
+            Sys_RTPCtracks.AddRTPCTrack()
+        end
+
         reaper.ImGui_EndTable(Gui.ctx)
     end
 
@@ -237,31 +234,38 @@ function Gui.MainComponents()
         local retval, temp_preview_mode = reaper.ImGui_Checkbox(Gui.ctx, 'Preview Mode', preview_mode)
         preview_mode = temp_preview_mode
         if retval then
-            set_events = false
             if preview_mode then
-                local init = sys_utils.InitializePreview()
-                sys_gui.AddLog(init)
+                local init = Sys_utils.InitializePreview()
+                Sys_gui.AddLog(init)
             else
-                sys_gui.AddLog({state = "INFO", desc = "Preview stopped"})
+                Sys_gui.AddLog({state = "INFO", desc = "Preview stopped"})
             end
         end
-        
-        reaper.ImGui_TableNextColumn(Gui.ctx)
-        retval, set_events = reaper.ImGui_Checkbox(Gui.ctx, 'Set clip events', set_events)
-        if retval then
-            preview_mode = false
-            
-            if set_events then
-                sys_gui.AddLog({state = "INFO", desc = "Item events creation started : Left click on track to create events item"})
-            else
-                sys_gui.AddLog({state = "INFO", desc = "Item events creation stopped"})
-            end
-        end
+
         reaper.ImGui_TableNextColumn(Gui.ctx)
         reaper.ImGui_Text(Gui.ctx, 'Events name : '); reaper.ImGui_SameLine(Gui.ctx)
         local _, temp_event_name = reaper.ImGui_InputText(Gui.ctx, '##inputText_events_name', Gui.event_name); reaper.ImGui_SameLine(Gui.ctx)
         Gui.event_name = temp_event_name
-        
+
+        local old_w, h = reaper.ImGui_GetContentRegionAvail(Gui.ctx)
+        reaper.ImGui_TableNextColumn(Gui.ctx)
+        if reaper.ImGui_Button(Gui.ctx, 'Test', old_w) then
+
+            Sys_RTPCtracks.GenerateInterpolatedCurve(reaper.GetSelectedTrack(0, 0))
+
+            --[[ POUR RECUPERER TOUS LES RTPC DE WWISE
+            local output, rtpcs = Sys_waapi.GetAllRTPCs()
+            
+            Sys_gui.AddLog(output)
+
+            for _, rtpc in ipairs(rtpcs) do
+                --reaper.ShowConsoleMsg("\ntest")
+                reaper.ShowConsoleMsg("\n" .. rtpc.id .. " / " .. rtpc.name)
+            end
+            ]]--
+
+        end
+
         reaper.ImGui_EndTable(Gui.ctx)
     end
 
@@ -272,17 +276,17 @@ function Gui.MainComponents()
         progressbar_space_h = 21
     end
 
-    if not sys_waapi.connected then
+    if not Sys_waapi.connected then
         reaper.ImGui_EndDisabled(Gui.ctx)
     end
 
-    if reaper.ImGui_BeginChild(Gui.ctx, 'child_log', winW - frame_padding * 1.4, (winH / 1.8) + progressbar_space_h + (frame_padding * 2), reaper.ImGui_ChildFlags_Border()) then
+    if reaper.ImGui_BeginChild(Gui.ctx, 'child_log', win_W - frame_padding * 1.4, (win_H / 1.8) + progressbar_space_h + (frame_padding * 2), reaper.ImGui_ChildFlags_Border()) then
         if reaper.ImGui_BeginTable(Gui.ctx, 'table_log', 1) then
             for i = 1, #Gui.log do
                 reaper.ImGui_TableNextRow(Gui.ctx)
                 reaper.ImGui_TableNextColumn(Gui.ctx)
                 local cur_log = Gui.log[i]
-                
+
                 if string.find(Gui.log[i], "[ERROR]", 1, true) then
                     reaper.ImGui_PushStyleColor(Gui.ctx, reaper.ImGui_Col_Text(), reaper.ImGui_ColorConvertDouble4ToU32(1,0,0,1))
                 elseif string.find(Gui.log[i], "[WARNING]", 1, true) then
@@ -293,28 +297,34 @@ function Gui.MainComponents()
                 reaper.ImGui_TextWrapped(Gui.ctx, Gui.log[i])
                 reaper.ImGui_PopStyleColor(Gui.ctx)
             end
-            
+
             reaper.ImGui_EndTable(Gui.ctx)
+
+            -- If new log appear, automatically move the scroll to the bottom
+            if old_log_length ~= #Gui.log then
+                reaper.ImGui_SetScrollY(Gui.ctx, 100000000)
+                old_log_length = #Gui.log
+            end
         end
         reaper.ImGui_EndChild(Gui.ctx)
     end
 
-    if reaper.ImGui_BeginChild(Gui.ctx, 'child_buttons', winW - frame_padding * 1.4, winH / 12) then
+    if reaper.ImGui_BeginChild(Gui.ctx, 'child_buttons', win_W - frame_padding * 1.4, win_H / 12) then
         if reaper.ImGui_BeginTable(Gui.ctx, 'table_buttons', 1, reaper.ImGui_TableColumnFlags_WidthStretch()) then
-            if not sys_waapi.connected then
+            if not Sys_waapi.connected then
                 reaper.ImGui_TableNextColumn(Gui.ctx)
                 local w, h = reaper.ImGui_GetContentRegionAvail(Gui.ctx)
                 if reaper.ImGui_Button(Gui.ctx, 'RECONNECT', w, h) then
-                    sys_gui.AddLog({state = "INFO", desc = "Trying to reconnect to Wwise..."})
-                    
-                    ThreadConnect = coroutine.wrap(sys_waapi.ConnectTime)
+                    Sys_gui.AddLog({state = "INFO", desc = "Trying to reconnect to Wwise..."})
 
-                    --local connexion = sys_waapi.Connect()
-                    --sys_gui.AddLog(connexion)
+                    App_state = "Reconnecting"
+
+                    --local connexion = Sys_waapi.Connect()
+                    --Sys_gui.AddLog(connexion)
                 end
             elseif Gui.is_started then
                 reaper.ImGui_BeginDisabled(Gui.ctx)
-                
+
                 reaper.ImGui_TableNextColumn(Gui.ctx)
                 local w, h = reaper.ImGui_GetContentRegionAvail(Gui.ctx)
                 if reaper.ImGui_Button(Gui.ctx, 'CANCEL', w, h) then
@@ -325,13 +335,13 @@ function Gui.MainComponents()
                 reaper.ImGui_TableNextColumn(Gui.ctx)
                 local w, h = reaper.ImGui_GetContentRegionAvail(Gui.ctx)
                 if reaper.ImGui_Button(Gui.ctx, 'GENERATE', w, h) then
-                    sys_gui.Generate()
+                    Sys_gui.Generate()
                 end
             end
-            
+
             reaper.ImGui_EndTable(Gui.ctx)
         end
-        
+
         reaper.ImGui_EndChild(Gui.ctx)
     end
 end
@@ -342,9 +352,9 @@ function Gui.SettingsWindow()
     -- Set Window visibility and settings --
     local settings_flags = reaper.ImGui_WindowFlags_NoCollapse() | reaper.ImGui_WindowFlags_NoScrollbar()
     reaper.ImGui_SetNextWindowSize(Gui.ctx, 400, 200, reaper.ImGui_Cond_Once())
-    reaper.ImGui_SetNextWindowPos(Gui.ctx, window_x + 50, window_y + 50, reaper.ImGui_Cond_Appearing())
+    reaper.ImGui_SetNextWindowPos(Gui.ctx, pos_X + 50, pos_Y + 50, reaper.ImGui_Cond_Appearing())
 
-    if not settings_open then
+    if not show_settings then
         show_settings = false
     end
     reaper.ImGui_PopStyleColor(Gui.ctx, 1)
