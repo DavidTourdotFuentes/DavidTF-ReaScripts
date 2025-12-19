@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="a86c2b2e108742e514eb7dc5fc5767b00646c02e">
+<index version="1" name="DavidTF ReaScripts" commit="a4dcc44de38fb2eafd65efbcfcdda0355e339983">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -58,7 +58,7 @@
   <category name="Color Management">
     <reapack name="david_Color all region based on clip parent track color.lua" type="script" desc="Color all region based on clip parent track color">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -111,6 +111,23 @@
       <version name="1.0" author="DavidTF" time="2025-01-23T11:27:45Z">
         <changelog><![CDATA[First commit]]></changelog>
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/1ee413824d7eda7e436ef0d497af699ef2f2c33d/Color%20Management/david_Toggle%20high%20contrast%20track%20colors.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Music">
+    <reapack name="david_Setup Kontakt midi send and audio outputs.lua" type="script" desc="Setup Kontakt midi send and audio outputs">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 First commit\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="DavidTF" time="2025-12-09T00:19:30Z">
+        <changelog><![CDATA[First commit]]></changelog>
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/a4dcc44de38fb2eafd65efbcfcdda0355e339983/Music/david_Setup%20Kontakt%20midi%20send%20and%20audio%20outputs.lua</source>
       </version>
     </reapack>
   </category>
