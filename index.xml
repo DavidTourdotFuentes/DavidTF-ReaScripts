@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="a4dcc44de38fb2eafd65efbcfcdda0355e339983">
+<index version="1" name="DavidTF ReaScripts" commit="d399640b48b752ae5a75f94c16e4f8afac80b385">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -175,6 +175,25 @@
       <version name="1.0" author="DavidTF" time="2025-03-19T10:36:17Z">
         <changelog><![CDATA[Initial release]]></changelog>
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/5ee5db8e4d7f8e0e0d234ead9f80db1161837644/Region%20Management/david_Renumber%20region%20IDs.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Tags Manager">
+    <reapack name="david_Remove tag for region in time selection.lua" type="script" desc="Remove tag for region in time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Remove tag for region in time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="david" time="2025-12-19T16:32:55Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/d399640b48b752ae5a75f94c16e4f8afac80b385/Tags%20Manager/david_Remove%20tag%20for%20region%20in%20time%20selection.lua</source>
+        <source file="Utilities/GUI.lua">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/d399640b48b752ae5a75f94c16e4f8afac80b385/Tags%20Manager/Utilities/GUI.lua</source>
+        <source file="Utilities/Storage.lua">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/d399640b48b752ae5a75f94c16e4f8afac80b385/Tags%20Manager/Utilities/Storage.lua</source>
+        <source file="Utilities/Utils.lua">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/d399640b48b752ae5a75f94c16e4f8afac80b385/Tags%20Manager/Utilities/Utils.lua</source>
       </version>
     </reapack>
   </category>
