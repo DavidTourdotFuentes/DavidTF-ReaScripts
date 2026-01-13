@@ -1,6 +1,6 @@
 -- @description Set tag 5 for region in time selection
 -- @author david
--- @version 1.0
+-- @version 1.1
 -- @provides
 --    [nomain] Utilities/*.lua
 -- @about Set tag 5 for region in time selection
@@ -21,5 +21,5 @@ if #regions_in_selection ~= 0 then
         reaper.SetProjExtState(0, Storage.section, r.guid, tag.tag)
     end
 
-    Utils.UpdateRegions(tag)
+    Utils.UpdateRegionsColor(tag)
 end

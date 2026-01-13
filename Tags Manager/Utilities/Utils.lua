@@ -101,6 +101,8 @@ end
 
 function Utils.GetRegionInTimeSelection()
 
+    Utils.ClearInvalidData()
+
     local regions_in_selection = {}
 
     local time_sel_start, time_sel_end = reaper.GetSet_LoopTimeRange(false, false, 0, 0, false)
@@ -133,6 +135,41 @@ function Utils.GetRegionInTimeSelection()
     end
 
     return regions_in_selection
+end
+
+function Utils.ClearInvalidData()
+
+    local _, num_markers, num_regions = reaper.CountProjectMarkers(0)
+
+    local last = false
+    local i = 0
+    while (last == false) or (i >= 100) do
+        local retval, guid, tag = reaper.EnumProjExtState(0, Storage.section, i)
+        
+        if retval then
+            local found = false
+
+            -- Parcourt tous les marqueurs et garde seulement les régions
+            for j = 0, num_markers + num_regions - 1 do
+                local _, isrgn, _, _, _, idx = reaper.EnumProjectMarkers(j)
+                if isrgn then
+                    local _, region_guid = reaper.GetSetProjectInfo_String(0, "MARKER_GUID:" .. idx, "", false)
+
+                    if guid == region_guid then
+                        found = true
+                        break
+                    end
+                end
+            end
+
+            if not found then reaper.SetProjExtState(0, Storage.section, guid, "") end
+
+        else
+            last = true
+        end
+
+        i = i + 1
+    end
 end
 
 return Utils

@@ -1,6 +1,6 @@
 -- @description Remove tag for region in time selection
 -- @author david
--- @version 1.0
+-- @version 1.1
 -- @provides
 --    [nomain] Utilities/*.lua
 -- @about Remove tag for region in time selection
@@ -12,6 +12,8 @@ Utils = require('Utilities/Utils')
 
 local tag = Storage.GetTagByID(1)
 
+Utils.ClearInvalidData()
+
 local regions_in_selection = {}
 
 regions_in_selection = Utils.GetRegionInTimeSelection()
@@ -19,19 +21,18 @@ regions_in_selection = Utils.GetRegionInTimeSelection()
 if #regions_in_selection ~= 0 then
     for _, r in ipairs(regions_in_selection) do
 
-        --local retval, tag = reaper.GetProjExtState(0, Storage.section, r.guid)
-        local retval, key, val = reaper.EnumProjExtState(0, Storage.section, r.index)
+        reaper.SetProjExtState(0, Storage.section, r.guid, "")
 
-        reaper.ShowConsoleMsg("Key : " .. key .. "\n")
-        reaper.ShowConsoleMsg("Val : " .. val .. "\n")
+        local _, num_markers, num_regions = reaper.CountProjectMarkers(0)
 
-        --if (tag == "") or  (tag == nil) then
-        --    reaper.SetProjExtState(0, Storage.section, r.guid, "")
-        --    reaper.SetProjectMarker3(0, r.index, true, r.start_pos, r.end_pos, r.name, reaper.ColorToNative(80, 133, 133) | 0x1000000)
-        --    reaper.ShowConsoleMsg("Région : " .. r.name .. " - " .. tag)
-        --else
-        --    reaper.ShowConsoleMsg("Région déjà sans tag")
-        --end
+        for i = 0, num_markers + num_regions - 1 do
+            local _, isrgn, pos, rgnend, name, idx = reaper.EnumProjectMarkers(i)
 
+            local _, guid = reaper.GetSetProjectInfo_String(0, "MARKER_GUID:" .. idx, "", false)
+
+            if isrgn and (r.guid == guid) then
+                reaper.SetProjectMarkerByIndex(0, i, true, pos, rgnend, idx, name, reaper.ColorToNative(80, 133, 133) | 0x1000000)
+            end
+        end
     end
 end

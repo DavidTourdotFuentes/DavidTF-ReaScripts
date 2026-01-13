@@ -28,6 +28,8 @@ function Gui.Init()
     -- Load Reaper settings
     cur_tags = Storage.LoadTagColors()
 
+    Utils.ClearInvalidData()
+
     show_tag_bool = Storage.LoadShowTagValue()
     tag_pattern = Storage.LoadTagPatternValue()
     PREFIX, SUFFIX = tag_pattern:match("^(.-)<tag>(.*)$")
@@ -41,10 +43,9 @@ function Gui.Loop()
     Gui.PushTheme()
 
     -- Window Settings --
-    local window_flags = reaper.ImGui_WindowFlags_NoCollapse() | reaper.ImGui_WindowFlags_NoTitleBar() | reaper.ImGui_WindowFlags_NoScrollbar()
+    local window_flags = reaper.ImGui_WindowFlags_NoCollapse() | reaper.ImGui_WindowFlags_NoTitleBar() | reaper.ImGui_WindowFlags_NoScrollbar() | reaper.ImGui_WindowFlags_NoResize()
 
     reaper.ImGui_SetNextWindowSize(Gui.ctx, win_W, win_H, reaper.ImGui_Cond_Once())
-    reaper.ImGui_SetNextWindowSizeConstraints(Gui.ctx, 300, 350, 400, 350)
 
     -- Font --
     reaper.ImGui_PushFont(Gui.ctx, FONT)
@@ -95,17 +96,17 @@ end
 
 function Gui.MainComponents()
 
-    local _, new_show_tag_bool = reaper.ImGui_Checkbox(Gui.ctx, "Show tag", show_tag_bool)
-    if new_show_tag_bool ~= show_tag_bool then
-        if new_show_tag_bool then
-            Utils.ShowHideTagsInRegionNames(PREFIX, SUFFIX, false)
-            reaper.SetExtState(Storage.section, "ShowTags", "true", true)
-        else
-            Utils.ShowHideTagsInRegionNames(PREFIX, SUFFIX, true)
-            reaper.SetExtState(Storage.section, "ShowTags", "false", true)
-        end
-        show_tag_bool = new_show_tag_bool
-    end
+    --local _, new_show_tag_bool = reaper.ImGui_Checkbox(Gui.ctx, "Show tag", show_tag_bool)
+    --if new_show_tag_bool ~= show_tag_bool then
+    --    if new_show_tag_bool then
+    --        Utils.ShowHideTagsInRegionNames(PREFIX, SUFFIX, false)
+    --        reaper.SetExtState(Storage.section, "ShowTags", "true", true)
+    --    else
+    --        Utils.ShowHideTagsInRegionNames(PREFIX, SUFFIX, true)
+    --        reaper.SetExtState(Storage.section, "ShowTags", "false", true)
+    --    end
+    --    show_tag_bool = new_show_tag_bool
+    --end
 
     reaper.ImGui_SameLine(Gui.ctx, 0, 10)
     reaper.ImGui_PushItemWidth(Gui.ctx, -1)
