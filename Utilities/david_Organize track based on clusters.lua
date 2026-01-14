@@ -1,3 +1,5 @@
+-- @noindex
+
 function Print(msg)
     reaper.ShowConsoleMsg("\n"..msg)
 end
