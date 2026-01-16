@@ -15,6 +15,7 @@ Storage.defaultTags = {
 
 Storage.section = "david_TagsManager"
 Storage.TagsListKey = "TagList"
+Storage.DefaultTagTemplateText =  "[<tag>]"
 
 function Storage.InitializeTags()
 
@@ -101,8 +102,8 @@ function Storage.LoadTagPatternValue()
     if showtag_value ~= "" then
         return showtag_value
     else
-        reaper.SetExtState(Storage.section, "TagPattern", "[<tag>]", true)
-        return "[<tag>]"
+        reaper.SetExtState(Storage.section, "TagPattern", Storage.DefaultTagTemplateText, true)
+        return Storage.DefaultTagTemplateText
     end
 end
 

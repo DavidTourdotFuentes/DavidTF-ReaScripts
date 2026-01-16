@@ -8,7 +8,7 @@ local section = "david_TagsManager"
 -- @about GUI to manage Tags
 
 -- Global Variables
-ScriptVersion = "v1.0"
+ScriptVersion = "v1.1"
 ScriptName = 'Tags Manager'
 Settings = {
 }

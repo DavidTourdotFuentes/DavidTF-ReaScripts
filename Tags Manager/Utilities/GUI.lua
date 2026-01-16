@@ -7,7 +7,7 @@ Gui.ctx = reaper.ImGui_CreateContext('Tags Manager')
 
 -- Local variables
 local window_name = ScriptName..' - '..ScriptVersion
-local win_W, win_H = 300, 350
+local win_W, win_H = 300, 360
 local pos_X, pos_Y = 80, 0
 local is_open = false
 local visible = true
@@ -96,21 +96,29 @@ end
 
 function Gui.MainComponents()
 
-    --local _, new_show_tag_bool = reaper.ImGui_Checkbox(Gui.ctx, "Show tag", show_tag_bool)
-    --if new_show_tag_bool ~= show_tag_bool then
-    --    if new_show_tag_bool then
-    --        Utils.ShowHideTagsInRegionNames(PREFIX, SUFFIX, false)
-    --        reaper.SetExtState(Storage.section, "ShowTags", "true", true)
-    --    else
-    --        Utils.ShowHideTagsInRegionNames(PREFIX, SUFFIX, true)
-    --        reaper.SetExtState(Storage.section, "ShowTags", "false", true)
-    --    end
-    --    show_tag_bool = new_show_tag_bool
-    --end
+    reaper.ImGui_Dummy(Gui.ctx, 0, 1)
+
+    local _, new_show_tag_bool = reaper.ImGui_Checkbox(Gui.ctx, " Show tag", show_tag_bool)
+    if new_show_tag_bool ~= show_tag_bool then
+        if new_show_tag_bool then
+            Utils.ShowHideTagsInRegionNames(PREFIX, SUFFIX, false)
+            reaper.SetExtState(Storage.section, "ShowTags", "true", true)
+        else
+            Utils.ShowHideTagsInRegionNames(PREFIX, SUFFIX, true)
+            reaper.SetExtState(Storage.section, "ShowTags", "false", true)
+        end
+        show_tag_bool = new_show_tag_bool
+    end
 
     reaper.ImGui_SameLine(Gui.ctx, 0, 10)
-    reaper.ImGui_PushItemWidth(Gui.ctx, -1)
+    reaper.ImGui_PushItemWidth(Gui.ctx, 145)
     local _, new_tag_pattern = reaper.ImGui_InputText(Gui.ctx, '##showtag_string', tag_pattern)
+
+    reaper.ImGui_SameLine(Gui.ctx, 0, -1)
+    if reaper.ImGui_Button(Gui.ctx, " R ") then
+        new_tag_pattern = Storage.DefaultTagTemplateText .. " "
+    end
+
     if new_tag_pattern ~= tag_pattern then
         local new_prefix, new_suffix = new_tag_pattern:match("^(.-)<tag>(.*)$")
 
@@ -123,6 +131,10 @@ function Gui.MainComponents()
             reaper.SetExtState(Storage.section, "TagPattern", tag_pattern, true)
         end
     end
+
+    reaper.ImGui_Dummy(Gui.ctx, 0, 1)
+    reaper.ImGui_Separator(Gui.ctx)
+    reaper.ImGui_Dummy(Gui.ctx, 0, 1)
 
     if reaper.ImGui_BeginTable(Gui.ctx, 'tags_list', 3, reaper.ImGui_TableFlags_SizingStretchProp()) then
 
@@ -149,6 +161,7 @@ function Gui.MainComponents()
                     new_tag = curTag.tag
                 else
                     Utils.RenameTagNameInRegionNames(PREFIX, SUFFIX, curTag.tag, new_tag)
+                    Utils.UpdateRegionsTags(curTag.tag, new_tag)
 
                     curTag.tag = new_tag
                     cur_tags[i].tag = new_tag

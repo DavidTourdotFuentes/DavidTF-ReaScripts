@@ -99,6 +99,26 @@ function Utils.RenameTagPrefixInRegionNames(prefix, suffix, new_prefix, new_suff
     end
 end
 
+function Utils.UpdateRegionsTags(old_tag, new_tag)
+    local last = false
+    local i = 0
+    while (last == false) and (i <= 10000) do
+        local retval, guid, tag = reaper.EnumProjExtState(0, Storage.section, i)
+        
+        if retval then
+
+            if tag == old_tag then
+                reaper.SetProjExtState(0, Storage.section, guid, new_tag)
+            end
+
+        else
+            last = true
+        end
+
+        i = i + 1
+    end
+end
+
 function Utils.GetRegionInTimeSelection()
 
     Utils.ClearInvalidData()
@@ -143,7 +163,7 @@ function Utils.ClearInvalidData()
 
     local last = false
     local i = 0
-    while (last == false) or (i >= 100) do
+    while (last == false) and (i <= 10000) do
         local retval, guid, tag = reaper.EnumProjExtState(0, Storage.section, i)
         
         if retval then
