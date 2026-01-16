@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="50141b044d0d30cb4b38c5b2a8061c36c52ae2e9">
+<index version="1" name="DavidTF ReaScripts" commit="556e4703d6cfa9c9db9e7bd85bbc09626687754c">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -200,6 +200,132 @@
         <source file="Utilities/GUI.lua">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/50141b044d0d30cb4b38c5b2a8061c36c52ae2e9/Tags%20Manager/Utilities/GUI.lua</source>
         <source file="Utilities/Storage.lua">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/50141b044d0d30cb4b38c5b2a8061c36c52ae2e9/Tags%20Manager/Utilities/Storage.lua</source>
         <source file="Utilities/Utils.lua">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/50141b044d0d30cb4b38c5b2a8061c36c52ae2e9/Tags%20Manager/Utilities/Utils.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Set tag 1 for region in time selection.lua" type="script" desc="Set tag 1 for region in time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Set tag 1 for region in time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2026-01-16T10:38:46Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/556e4703d6cfa9c9db9e7bd85bbc09626687754c/Tags%20Manager/david_Set%20tag%201%20for%20region%20in%20time%20selection.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Set tag 2 for region in time selection.lua" type="script" desc="Set tag 2 for region in time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Set tag 2 for region in time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2026-01-16T10:38:46Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/556e4703d6cfa9c9db9e7bd85bbc09626687754c/Tags%20Manager/david_Set%20tag%202%20for%20region%20in%20time%20selection.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Set tag 3 for region in time selection.lua" type="script" desc="Set tag 3 for region in time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Set tag 3 for region in time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2026-01-16T10:38:46Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/556e4703d6cfa9c9db9e7bd85bbc09626687754c/Tags%20Manager/david_Set%20tag%203%20for%20region%20in%20time%20selection.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Set tag 4 for region in time selection.lua" type="script" desc="Set tag 4 for region in time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Set tag 4 for region in time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2026-01-16T10:38:46Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/556e4703d6cfa9c9db9e7bd85bbc09626687754c/Tags%20Manager/david_Set%20tag%204%20for%20region%20in%20time%20selection.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Set tag 5 for region in time selection.lua" type="script" desc="Set tag 5 for region in time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Set tag 5 for region in time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2026-01-16T10:38:46Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/556e4703d6cfa9c9db9e7bd85bbc09626687754c/Tags%20Manager/david_Set%20tag%205%20for%20region%20in%20time%20selection.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Set tag 6 for region in time selection.lua" type="script" desc="Set tag 6 for region in time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Set tag 6 for region in time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2026-01-16T10:38:46Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/556e4703d6cfa9c9db9e7bd85bbc09626687754c/Tags%20Manager/david_Set%20tag%206%20for%20region%20in%20time%20selection.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Set tag 7 for region in time selection.lua" type="script" desc="Set tag 7 for region in time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Set tag 7 for region in time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2026-01-16T10:38:46Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/556e4703d6cfa9c9db9e7bd85bbc09626687754c/Tags%20Manager/david_Set%20tag%207%20for%20region%20in%20time%20selection.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Set tag 8 for region in time selection.lua" type="script" desc="Set tag 8 for region in time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Set tag 8 for region in time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2026-01-16T10:38:46Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/556e4703d6cfa9c9db9e7bd85bbc09626687754c/Tags%20Manager/david_Set%20tag%208%20for%20region%20in%20time%20selection.lua</source>
+      </version>
+    </reapack>
+    <reapack name="david_Set tag 9 for region in time selection.lua" type="script" desc="Set tag 9 for region in time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Set tag 9 for region in time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2026-01-16T10:38:46Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/556e4703d6cfa9c9db9e7bd85bbc09626687754c/Tags%20Manager/david_Set%20tag%209%20for%20region%20in%20time%20selection.lua</source>
       </version>
     </reapack>
   </category>
