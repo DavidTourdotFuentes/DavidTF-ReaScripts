@@ -1,7 +1,0 @@
--- @description Tags Manager Utilities Provider
--- @author David
--- @version 1.0
--- @provides
---    [nomain] Utilities/GUI.lua
---    [nomain] Utilities/Storage.lua
---    [nomain] Utilities/Utils.lua
