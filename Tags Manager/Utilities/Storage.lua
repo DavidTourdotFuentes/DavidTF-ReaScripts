@@ -1,4 +1,9 @@
--- @noindex
+-- @description Tags Manager Storage
+-- @author David
+-- @version 1.0
+-- @provides
+--    [nomain] Utilities/*.lua
+
 local Storage = {}
 
 Storage.defaultTags = {

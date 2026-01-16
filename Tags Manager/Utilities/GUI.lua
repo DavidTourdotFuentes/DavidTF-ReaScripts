@@ -1,4 +1,9 @@
--- @noindex
+-- @description Tags Manager GUI utilities
+-- @author David
+-- @version 1.0
+-- @provides
+--    [nomain] Utilities/*.lua
+
 
 local Gui = {}
 
