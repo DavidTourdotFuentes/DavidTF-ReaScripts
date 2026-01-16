@@ -1,8 +1,3 @@
--- @description Tags Manager GUI utilities
--- @author David
--- @version 1.0
-
-
 local Gui = {}
 
 -- Shared variables

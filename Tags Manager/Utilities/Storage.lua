@@ -1,7 +1,3 @@
--- @description Tags Manager Storage
--- @author David
--- @version 1.0
-
 local Storage = {}
 
 Storage.defaultTags = {

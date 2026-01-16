@@ -1,6 +1,3 @@
--- @description Tags Manager Utils
--- @author David
--- @version 1.0
 local Utils = {}
 
 package.path = package.path..';'..debug.getinfo(1, "S").source:match [[^@?(.*[\/])[^\/]-$]] .. "?.lua;"
