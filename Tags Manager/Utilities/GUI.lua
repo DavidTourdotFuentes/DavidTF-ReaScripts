@@ -1,5 +1,3 @@
--- @noindex
-
 local Gui = {}
 
 -- Shared variables

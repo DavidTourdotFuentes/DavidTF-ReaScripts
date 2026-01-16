@@ -1,5 +1,3 @@
--- @noindex
-
 local Storage = {}
 
 Storage.defaultTags = {
