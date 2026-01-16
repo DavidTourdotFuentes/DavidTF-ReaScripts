@@ -1,3 +1,8 @@
+-- @description GUI Library
+-- @author david
+-- @version 1.0
+-- @about GUI Library
+
 local Gui = {}
 
 -- Shared variables

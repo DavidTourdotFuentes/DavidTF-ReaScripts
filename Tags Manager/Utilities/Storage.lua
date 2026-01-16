@@ -1,3 +1,8 @@
+-- @description Storage Library
+-- @author david
+-- @version 1.0
+-- @about Storage Library
+
 local Storage = {}
 
 Storage.defaultTags = {

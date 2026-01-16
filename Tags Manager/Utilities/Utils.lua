@@ -1,3 +1,8 @@
+-- @description Utilities Library
+-- @author david
+-- @version 1.0
+-- @about Utilities Library
+
 local Utils = {}
 
 package.path = package.path..';'..debug.getinfo(1, "S").source:match [[^@?(.*[\/])[^\/]-$]] .. "?.lua;"
