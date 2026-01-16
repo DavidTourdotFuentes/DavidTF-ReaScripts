@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="556e4703d6cfa9c9db9e7bd85bbc09626687754c">
+<index version="1" name="DavidTF ReaScripts" commit="7166977be753f186ee8d3852fdb4bbcb1fa095b9">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -179,6 +179,20 @@
     </reapack>
   </category>
   <category name="Tags Manager">
+    <reapack name="david_Open tags editor.lua" type="script" desc="Open tags Editor">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 GUI to manage Tags\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1" author="david" time="2026-01-16T11:07:59Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/7166977be753f186ee8d3852fdb4bbcb1fa095b9/Tags%20Manager/david_Open%20tags%20editor.lua</source>
+      </version>
+    </reapack>
     <reapack name="david_Remove tag for region in time selection.lua" type="script" desc="Remove tag for region in time selection">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
