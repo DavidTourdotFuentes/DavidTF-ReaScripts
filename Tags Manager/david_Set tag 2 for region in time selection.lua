@@ -1,8 +1,6 @@
 -- @description Set tag 2 for region in time selection
 -- @author david
--- @version 1.0
--- @provides
---    [nomain] Utilities/*.lua
+-- @version 1.1
 -- @about Set tag 2 for region in time selection
 
 package.path = package.path..';'..debug.getinfo(1, "S").source:match [[^@?(.*[\/])[^\/]-$]] .. "?.lua;"
