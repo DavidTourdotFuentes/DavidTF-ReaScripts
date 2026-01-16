@@ -1,7 +1,4 @@
--- @description Storage Library
--- @author david
--- @version 1.0
--- @about Storage Library
+-- @noindex
 
 local Storage = {}
 

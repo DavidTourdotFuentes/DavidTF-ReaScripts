@@ -1,7 +1,4 @@
--- @description GUI Library
--- @author david
--- @version 1.0
--- @about GUI Library
+-- @noindex
 
 local Gui = {}
 

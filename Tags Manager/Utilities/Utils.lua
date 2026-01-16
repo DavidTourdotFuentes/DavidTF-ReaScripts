@@ -1,7 +1,4 @@
--- @description Utilities Library
--- @author david
--- @version 1.0
--- @about Utilities Library
+-- @noindex
 
 local Utils = {}
 
