@@ -1,3 +1,5 @@
+-- [nomain]
+
 local Storage = {}
 
 Storage.defaultTags = {

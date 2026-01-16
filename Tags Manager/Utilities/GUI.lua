@@ -1,3 +1,5 @@
+-- [nomain]
+
 local Gui = {}
 
 -- Shared variables
