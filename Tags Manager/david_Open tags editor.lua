@@ -1,8 +1,6 @@
 -- @description Open tags Editor
 -- @author david
 -- @version 1.1
--- @provides
---    Utilities/*.lua
 -- @about GUI to manage Tags
 
 -- Global Variables
