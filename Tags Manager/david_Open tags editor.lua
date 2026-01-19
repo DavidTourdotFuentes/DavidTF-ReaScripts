@@ -1,3 +1,4 @@
+--@noindex
 -- @description Open tags Editor
 -- @author david
 -- @version 1.1.1
