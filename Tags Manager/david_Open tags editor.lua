@@ -1,12 +1,12 @@
 -- @description Open tags Editor
 -- @author david
--- @version 1.2
+-- @version 1.2.1
 -- @provides
 --    [nomain] Utilities/*.lua
 -- @about Open tags editor
 
 -- Global Variables
-ScriptVersion = "v1.2"
+ScriptVersion = "v1.2.1"
 ScriptName = 'Tags Manager'
 Settings = {
 }
