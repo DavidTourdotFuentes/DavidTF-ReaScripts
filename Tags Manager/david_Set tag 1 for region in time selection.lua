@@ -1,12 +1,12 @@
 -- @description Set tag 1 for region in time selection
 -- @author david
--- @version 1.1
+-- @version 1.2
 -- @about Set tag 1 for region in time selection
 
 package.path = package.path..';'..debug.getinfo(1, "S").source:match [[^@?(.*[\/])[^\/]-$]] .. "?.lua;"
 
-Storage = require('Utilities/Storage')
-Utils = require('Utilities/Utils')
+Storage = require('Utilities/TMU_Storage')
+Utils = require('Utilities/TMU_Utils')
 
 local tag = Storage.GetTagByID(1)
 
