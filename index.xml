@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="7166977be753f186ee8d3852fdb4bbcb1fa095b9">
+<index version="1" name="DavidTF ReaScripts" commit="fa0c633f2c1801ea96e0513b18b54a7cc2e20e08">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -185,12 +185,18 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 GUI to manage Tags\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Open tags editor\par}
 }
 ]]></description>
       </metadata>
       <version name="1.1" author="david" time="2026-01-16T11:07:59Z">
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/7166977be753f186ee8d3852fdb4bbcb1fa095b9/Tags%20Manager/david_Open%20tags%20editor.lua</source>
+      </version>
+      <version name="1.1.1" author="david" time="2026-01-19T09:34:20Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/fa0c633f2c1801ea96e0513b18b54a7cc2e20e08/Tags%20Manager/david_Open%20tags%20editor.lua</source>
+        <source file="Utilities/TMU_GUI.lua">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/fa0c633f2c1801ea96e0513b18b54a7cc2e20e08/Tags%20Manager/Utilities/TMU_GUI.lua</source>
+        <source file="Utilities/TMU_Storage.lua">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/fa0c633f2c1801ea96e0513b18b54a7cc2e20e08/Tags%20Manager/Utilities/TMU_Storage.lua</source>
+        <source file="Utilities/TMU_Utils.lua">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/fa0c633f2c1801ea96e0513b18b54a7cc2e20e08/Tags%20Manager/Utilities/TMU_Utils.lua</source>
       </version>
     </reapack>
     <reapack name="david_Remove tag for region in time selection.lua" type="script" desc="Remove tag for region in time selection">
