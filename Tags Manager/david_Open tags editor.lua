@@ -6,7 +6,7 @@
 -- @about Open tags editor
 
 -- Global Variables
-ScriptVersion = "v1.0"
+ScriptVersion = "v1.2"
 ScriptName = 'Tags Manager'
 Settings = {
 }

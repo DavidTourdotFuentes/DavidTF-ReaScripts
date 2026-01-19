@@ -7,7 +7,7 @@ local Utils = {}
 
 package.path = package.path..';'..debug.getinfo(1, "S").source:match [[^@?(.*[\/])[^\/]-$]] .. "?.lua;"
 
-Storage = require('Utilities/Storage')
+Storage = require('Utilities/TMU_Storage')
 
 function Utils.UpdateRegionsColor(tagToChange)
 
