@@ -1,4 +1,8 @@
+-- @description GUI
+-- @author david
+-- @version 1.0
 -- [nomain]
+-- @about GUI
 
 local Gui = {}
 

@@ -1,4 +1,8 @@
+-- @description Storage
+-- @author david
+-- @version 1.0
 -- [nomain]
+-- @about Storage
 
 local Storage = {}
 
