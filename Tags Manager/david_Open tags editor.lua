@@ -2,7 +2,7 @@
 -- @author david
 -- @version 1.1
 -- @provides
---    [nomain] Utilities/*.lua
+--    Utilities/*.lua
 -- @about GUI to manage Tags
 
 -- Global Variables
