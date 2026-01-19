@@ -1,6 +1,6 @@
 -- @description Open tags Editor
 -- @author david
--- @version 1.0
+-- @version 1.2
 -- @provides
 --    [nomain] Utilities/*.lua
 -- @about Open tags editor
