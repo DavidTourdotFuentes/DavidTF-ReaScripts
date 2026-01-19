@@ -1,7 +1,9 @@
 -- @description Open tags Editor
 -- @author david
--- @version 1.1
--- @about GUI to manage Tags
+-- @version 1.1.1
+-- @provides
+--    Utilities/*.lua
+-- @about Open tags editor
 
 -- Global Variables
 ScriptVersion = "v1.1"
