@@ -1,4 +1,7 @@
--- @version 1.1
+--@noindex
+--@description Storage
+--@author david
+--@about All storage
 
 local Storage = {}
 

@@ -1,4 +1,7 @@
--- @version 1.1
+--@noindex
+--@description Utils
+--@author david
+--@about All Utilities
 
 local Utils = {}
 

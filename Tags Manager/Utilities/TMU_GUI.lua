@@ -1,4 +1,7 @@
--- @version 1.1
+--@noindex
+--@description GUIlib
+--@author david
+--@about All GUI
 
 local Gui = {}
 
