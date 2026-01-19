@@ -1,3 +1,5 @@
+-- @version 1.1
+
 local Gui = {}
 
 -- Shared variables
