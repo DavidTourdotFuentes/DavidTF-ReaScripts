@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="DavidTF ReaScripts" commit="9291b6da8b3e9f91b4955099ca177e54b29261e6">
+<index version="1" name="DavidTF ReaScripts" commit="eac3900f63b012c8027f2e78851ccf62b48852b8">
   <category name="Audio Processing">
     <reapack name="david_Analyse and display resonance frequencies.lua" type="script" desc="Analyse and display resonance frequencies">
       <metadata>
@@ -220,6 +220,9 @@
       </metadata>
       <version name="1.1" author="david" time="2026-01-19T10:40:37Z">
         <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/1bd7d51d7eea8cf6a277ce7cf0cdea38627da9c1/Tags%20Manager/david_Remove%20tag%20for%20region%20in%20time%20selection.lua</source>
+      </version>
+      <version name="1.2" author="david" time="2026-01-19T14:57:13Z">
+        <source main="main">https://github.com/DavidTourdotFuentes/DavidTF-ReaScripts/raw/eac3900f63b012c8027f2e78851ccf62b48852b8/Tags%20Manager/david_Remove%20tag%20for%20region%20in%20time%20selection.lua</source>
       </version>
     </reapack>
     <reapack name="david_Set tag 1 for region in time selection.lua" type="script" desc="Set tag 1 for region in time selection">
